@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para Évelin</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .texto {
+      margin-top: 20px;
+      font-size: 18px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .contador {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #8b0000;
+    }
+    .spotify {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Para Évelin</h1>
+  <img src="20311A6B-118F-4125-AAAA-C595B4220734.jpeg" alt="Foto da Évelin">
+  
+  <div class="texto">
+    “Você merece ser feliz, você merece ser cuidada, você merece carinho, atenção, você merece amor. 
+    Você é uma mulher incrível, você é inteligente, você é forte, determinada, você é linda! 
+    Não deixe o que as pessoas fizeram de ruim pra você te apagar isso, você é única!<br><br>
+    Teu sorriso te faz única, tua personalidade te faz única, eu te adoro, Évelin. 
+    Tudo tem sido estranhamente muito bom.”
+  </div>
+
+  <div class="contador" id="dias-contador">
+    Dias desde nosso primeiro encontro: carregando...
+  </div>
+
+  <div class="spotify">
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/0Xxjyrl6Z8BtyY7EBBwozI?utm_source=generator" 
+      width="300" height="80" frameBorder="0" 
+      allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <script>
+    function calcularDias() {
+      const primeiraData = new Date('2025-04-21');
+      const hoje = new Date();
+      const diferenca = hoje - primeiraData;
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      document.getElementById('dias-contador').innerText = `Dias desde nosso primeiro encontro: ${dias}`;
+    }
+    calcularDias();
+  </script>
+</body>
+</html>
