@@ -7,10 +7,19 @@
   <style>
     body {
       font-family: 'Georgia', serif;
-      background-color: #f4f0ff;
+      background-color: #e8ddff;
       color: #3a2c5a;
       text-align: center;
-      padding: 2em;
+      padding: 3em 1em;
+    }
+
+    .caixa {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2.5em 2em;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(75, 0, 130, 0.2);
     }
 
     img {
@@ -18,14 +27,16 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(75, 0, 130, 0.3);
+      margin-top: 1em;
     }
 
     .legenda {
       font-size: 1.2em;
-      margin-top: 1em;
+      margin-top: 1.5em;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     .contador {
@@ -58,24 +69,28 @@
   </style>
 </head>
 <body>
-  <h1>Para Évelin</h1>
-  <img src="20311A6B-118F-4125-AAAA-C595B4220734.jpeg" alt="Évelin">
-  <p class="legenda">
-    “Você merece ser feliz, você merece ser cuidada, você merece carinho, atenção, você merece amor. 
-    Você é uma mulher incrível, você é inteligente, você é forte, determinada, você é linda! 
-    Não deixe o que as pessoas fizeram de ruim pra você te apagar isso, você é única! 
-    Teu sorriso te faz única, tua personalidade te faz única, eu te adoro, Évelin. 
-    Tudo tem sido estranhamente muito bom.”
-  </p>
+  <div class="caixa">
+    <h1>Para Évelin</h1>
+    <img src="20311A6B-118F-4125-AAAA-C595B4220734.jpeg" alt="Évelin">
+    
+    <p class="legenda">
+      “Você merece ser feliz, você merece ser cuidada, você merece carinho, atenção, você merece amor. 
+      Você é uma mulher incrível, você é inteligente, você é forte, determinada, você é linda! 
+      Não deixe o que as pessoas fizeram de ruim pra você te apagar isso, você é única! 
+      Teu sorriso te faz única, tua personalidade te faz única, eu te adoro, Évelin. 
+      Tudo tem sido estranhamente muito bom.”
+    </p>
 
-  <div class="contador" id="diasContador"></div>
+    <div class="contador" id="diasContador"></div>
 
-  <a class="botao-pedido" href="pedido.html">🌹 Tem algo que eu preciso te perguntar... 🌹</a>
+    <a class="botao-pedido" href="pedido.html">🌹 Tem algo que eu preciso te perguntar... 🌹</a>
 
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0Xxjyrl6Z8BtyY7EBBwozI?utm_source=generator" 
-    width="100%" height="152" frameborder="0" allowfullscreen="" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-  </iframe>
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/0Xxjyrl6Z8BtyY7EBBwozI?utm_source=generator" 
+      width="100%" height="152" frameborder="0" allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+    </iframe>
+  </div>
 
   <script>
     const dataInicio = new Date("2025-04-21");
