@@ -1,0 +1,32 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #6a0dad;
+    color: #333;
+}
+
+.container {
+    background: white;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #a678d1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #8a2be2;
+}
