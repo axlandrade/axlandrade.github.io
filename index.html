@@ -1,99 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosso Cantinho</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        function atualizarContadores() {
-            const dataEncontro = new Date("2025-04-21");
-            const dataNamoro = new Date("2025-05-01");
-            const hoje = new Date();
-            
-            const diffEncontro = Math.floor((hoje - dataEncontro) / (1000 * 60 * 60 * 24));
-            const diffNamoro = Math.floor((hoje - dataNamoro) / (1000 * 60 * 60 * 24));
-            
-            document.getElementById("contador-encontro").textContent = diffEncontro + " dias desde nosso primeiro encontro.";
-            document.getElementById("contador-namoro").textContent = diffNamoro + " dias de namoro.";
-        }
-        window.onload = atualizarContadores;
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar no site</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #7a4db4, #d1a3ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #7a4db4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vinda ao nosso cantinho 💜</h1>
-        <p id="contador-encontro"></p>
-        <p id="contador-namoro"></p>
-        <a href="pedido.html" class="btn">Ver o pedido de namoro</a>
-        <div style="position: center; margin-top: 20px; z-index: 1000;">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0Xxjyrl6Z8BtyY7EBBwozI?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    </div>
+  <div class="login-box">
+    <h2>Bem-vindo 💜</h2>
+    <p>Digite a senha para entrar:</p>
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="verificarSenha()">Entrar</button>
+    <p id="erro" class="error">Senha incorreta. Tente novamente.</p>
+  </div>
 
-    <!-- Adicione isso dentro do <body> do seu index.html -->
-    <div class="mesversario-box">
-    <h2>Estamos quase completando um mês de namoro!</h2>
-    <p id="countdown"></p>
-    <button id="btn-mesversario" disabled>Surpresa em 01/06</button>
-    </div>
-
-    <style>
-    .mesversario-box {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: white;
-        border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+  <script>
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+      const erro = document.getElementById("erro");
+      if (senha === "0105") {
+        window.location.href = "index.html";
+      } else {
+        erro.style.display = "block";
+      }
     }
-    #btn-mesversario {
-        margin-top: 10px;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 6px;
-        background-color: #a678de;
-        color: white;
-        cursor: not-allowed;
-    }
-    #btn-mesversario.enabled {
-        background-color: #7a4db4;
-        cursor: pointer;
-    }
-    </style>
-
-    <script>
-    const btn = document.getElementById("btn-mesversario");
-    const countdown = document.getElementById("countdown");
-    const unlockDate = new Date("2025-06-01T00:00:00");
-
-    function updateCountdown() {
-        const now = new Date();
-        const diff = unlockDate - now;
-
-        if (diff <= 0) {
-        countdown.textContent = "Já chegou! Clique para ver a surpresa.";
-        btn.disabled = false;
-        btn.classList.add("enabled");
-        btn.textContent = "Vem ver a surpresa que eu te fiz!";
-        btn.onclick = () => {
-            window.location.href = "mesversario.html";
-        };
-        } else {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        countdown.textContent = `${days}d ${hours}h ${minutes}min para o nosso dia 💜`;
-        }
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 60000); // atualiza a cada minuto
-    </script>
+  </script>
 </body>
 </html>

@@ -11,10 +11,13 @@
       background: linear-gradient(135deg, #a678de, #ffd700);
       color: #333;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
+      gap: 40px;
+      padding: 20px;
     }
     .container {
       background-color: white;
@@ -34,16 +37,27 @@
       font-size: 2rem;
       color: #e63946;
     }
+    .player-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Feliz 1 mês de namoro! 💜</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus justo non est fermentum, a efficitur magna tristique.<br>
-      Eu te amo. Hoje celebramos nosso primeiro mês, de muitos que ainda virão.
+      Se alguém, a um ano atrás, me falasse que um dia estaríamos namorando, eu não acreditaria de forma alguma. Você, melhor que ninguém sabe bem, até porque já te falei, desde o primeiro dia que te vi sempre tive uma quedinha (precipício) por você, tanto que não sei como e nem de onde ano passado arrumei coragem de te chamar pra sair, e você, felizmente aceitou (mesmo que tenha me dado um bolo... História pra contar para os nossos filhos, né?). Daí um ano depois tivemos nossa reconexão, com certeza não foi na melhor das ocasiões, mas independente disso, foi uma reconexão muito sincera, parecia que você, de alguma forma, saberia que independente de qualquer coisa eu estaria aqui para o que você precisasse, mesmo que eu nunca tenha te dito isso, e não foi diferente, eu estava lá pra você, da mesma forma que eu estou aqui pra você hoje, meu amor. Todos os nossos momentos são especiais pra mim, todas as nossas conversas, todas as nossas risadas, todos os nossos abraços, todos os nossos beijos, tudo que vivemos juntos nesse 1 mês (que mais parece 10 anos) é especial pra mim, e eu espero que esteja sendo especial pra você também amor.  
     </p>
     <p class="heart">&#10084;&#65039;</p>
+  </div>
+
+  <div class="player-container">
+    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2105143872&color=%23ba852f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-774010361" title="Axl Andrade" target="_blank" style="color: #cccccc; text-decoration: none;">Axl Andrade</a> · <a href="https://soundcloud.com/user-774010361/waiting-for-you" title="Waiting For You" target="_blank" style="color: #cccccc; text-decoration: none;">Waiting For You</a></div>
+    </div>
   </div>
 </body>
 </html>

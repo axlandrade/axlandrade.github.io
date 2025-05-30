@@ -30,3 +30,14 @@ body {
 .btn:hover {
     background: #8a2be2;
 }
+
+.voltar {
+      display: inline-block;
+      margin-top: 2.5em;
+      text-decoration: none;
+      color: #fff;
+      background: #7a4fc3;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: background 0.3s;
+    }
