@@ -77,6 +77,9 @@
       <label for="q5">5. Quando te pedi em namoro?</label>
       <input type="text" id="q5" name="q5" required>
 
+      <label for="q6">6. Qual era a cor da calça que eu estava quando nós nos vimos pela primeira vez?</label>
+      <input type="text" id="q6" name="q6" required>
+
       <button type="submit">Enviar Respostas</button>
     </form>
     <div class="success" id="successMessage">
@@ -95,7 +98,7 @@
       const q5 = document.getElementById("q5").value.trim().toLowerCase();
 
 
-      if (q1 === "21/04/2025" && q2 === "azul" && q3 === "wish you were here" && q4 === "interestelar" && q5 === "01/05/2025") {
+      if (q1 === "21/04/2025" && q2 === "azul" && q3 === "wish you were here" && q4 === "interestelar" && q5 === "01/05/2025" && q6 === "preta") {
         document.getElementById("quizForm").style.display = "none";
         document.getElementById("successMessage").style.display = "block";
       } else {
