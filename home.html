@@ -97,5 +97,88 @@
     updateCountdown();
     setInterval(updateCountdown, 60000); // atualiza a cada minuto
     </script>
+
+    <!-- Adicione isso dentro do <body> do seu index.html, logo abaixo dos outros contadores -->
+    <div class="namorados-box">
+    <h2>Dia dos Namorados chegando! 💘</h2>
+    <p id="countdown-namorados"></p>
+    <button id="btn-namorados" disabled>Surpresa em 12/06</button>
+    <br>
+    <a href="formulario.html" class="btn-desafio">Não aguenta aguardar? Toca aqui 🎁</a>
+    </div>
+
+    <style>
+    .namorados-box {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #btn-namorados {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: #c62828;
+        color: white;
+        cursor: not-allowed;
+    }
+    #btn-namorados.enabled {
+        background-color: #a31313;
+        cursor: pointer;
+    }
+    .btn-desafio {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 18px;
+    background-color: #f48fb1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    }
+    .btn-desafio:hover {
+        background-color: #ec407a;
+    }
+
+    </style>
+
+    <script>
+    const btnNamorados = document.getElementById("btn-namorados");
+    const countdownNamorados = document.getElementById("countdown-namorados");
+    const unlockDateNamorados = new Date("2025-06-12T00:00:00");
+
+    function updateCountdownNamorados() {
+        const now = new Date();
+        const diff = unlockDateNamorados - now;
+
+        if (diff <= 0) {
+        countdownNamorados.textContent = "Chegou o Dia dos Namorados! Clique para ver a surpresa.";
+        btnNamorados.disabled = false;
+        btnNamorados.classList.add("enabled");
+        btnNamorados.textContent = "Ver surpresa do Dia dos Namorados";
+        btnNamorados.onclick = () => {
+            window.location.href = "namorados1.html";
+        };
+        } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        countdownNamorados.textContent = `${days}d ${hours}h ${minutes}min para o Dia dos Namorados ❤️`;
+        }
+    }
+
+    updateCountdownNamorados();
+    setInterval(updateCountdownNamorados, 60000); // atualiza a cada minuto
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio do Amor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      color: #333;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #d81b60;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    .success {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      color: #4caf50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Desafio do Amor 💘</h1>
+    <form id="quizForm">
+      <label for="q1">1. Qual foi a data do nosso primeiro encontro?</label>
+      <input type="text" id="q1" name="q1" required>
+
+      <label for="q2">2. Qual é a minha cor favorita?</label>
+      <input type="text" id="q2" name="q2" required>
+
+      <label for="q3">3. Qual é o nome da minha música favorita?</label>
+      <input type="text" id="q3" name="q3" required>
+
+      <label for="q4">4. Qual é o nome do meu filme favorito?</label>
+      <input type="text" id="q4" name="q4" required>
+
+      <label for="q5">5. Quando te pedi em namoro?</label>
+      <input type="text" id="q5" name="q5" required>
+
+      <button type="submit">Enviar Respostas</button>
+    </form>
+    <div class="success" id="successMessage">
+      Você acertou tudo! ❤️<br>
+      <a href="namorados1.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #f06292; color: white; border-radius: 8px; text-decoration: none; font-size: 16px;">Clique aqui para receber seu presente! 🎁</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const q1 = document.getElementById("q1").value.trim().toLowerCase();
+      const q2 = document.getElementById("q2").value.trim().toLowerCase();
+      const q3 = document.getElementById("q3").value.trim().toLowerCase();
+      const q4 = document.getElementById("q4").value.trim().toLowerCase();
+      const q5 = document.getElementById("q5").value.trim().toLowerCase();
+
+
+      if (q1 === "21/04/2025" && q2 === "azul" && q3 === "wish you were here" && q4 === "interestelar" && q5 === "01/05/2025") {
+        document.getElementById("quizForm").style.display = "none";
+        document.getElementById("successMessage").style.display = "block";
+      } else {
+        alert("Alguma resposta está errada... tenta lembrar com carinho! 💭");
+      }
+    });
+  </script>
+</body>
+</html>

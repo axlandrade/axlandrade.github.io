@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dia dos Namorados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #b81d24, #ffd700);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      gap: 40px;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+    }
+    h1 {
+      color: #b81d24;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    .heart {
+      font-size: 2rem;
+      color: #e63946;
+    }
+        .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+    }
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .active {
+      background-color: #b81d24;
+    }
+    .back-button {
+      background-color: #b81d24;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .tarot-gallery {
+      margin-top: 40px;
+    }
+    .tarot-gallery h2 {
+      margin-bottom: 20px;
+      color: #b81d24;
+    }
+    .tarot-card {
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      margin: 10px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Feliz Dia dos Namorados (antecipado ou não)! ❤️</h1>
+
+    <div class="carousel">
+      <div class="slides" id="slideContainer">
+        <div class="slide"><img src="images/foto1.jpg" alt="Foto 1"></div>
+        <div class="slide"><img src="images/foto2.jpg" alt="Foto 2"></div>
+      </div>
+    </div>
+    <div class="dots">
+      <span class="dot active" onclick="moveSlide(0)"></span>
+      <span class="dot" onclick="moveSlide(1)"></span>
+    </div>
+
+    <p>
+      Oi, meu amor, tudo bem? Se você está lendo isso antes do dia 12, é porque você foi bem no quiz (tava bem fácil né?...), então meus parabéns meu amor (pessoa ansiosa ai ai)!
+
+      Queria, antes de tudo, te desejar um feliz dia dos namorados, sei que no mais é só uma data, mas quero que todas as nossas datas tenham um pouco de importância, afinal, todo dia com você é um dia especial pra mim.
+      <br>
+      Você, de todas as pessoas que eu já conheci na vida (sem exceção alguma), é a pessoa mais incrível, únnica e admirável de todas
+    </p>
+    <p class="heart">&#10084;&#65039;</p>
+
+    <div class="tarot-gallery">
+      <h2>Nossa carta</h2>
+      <img src="images/tarot1.png" alt="Carta 1" class="tarot-card">
+    </div>
+
+    <a class="back-button" href="home.html">Voltar para o início</a>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slideContainer");
+    const dots = document.getElementsByClassName("dot");
+    const totalSlides = dots.length;
+
+    function moveSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      dots[currentSlide].classList.add("active");
+    }
+
+    function autoSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    setInterval(autoSlide, 4000); // troca a cada 4 segundos
+  </script>
+</body>
+</html>
