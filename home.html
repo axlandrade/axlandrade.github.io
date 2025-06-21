@@ -107,8 +107,25 @@
     <a href="formulario.html" class="btn-desafio">A ansiedade te pegou? Aperta aqui 🎁</a>
     </div>
 
+    <div class="especial-box">
+    <h2>Hoje é um dia especial</h2>
+    <p>Não é nada demais, são só algumas palavras de coração</p>
+    <button id="btn-especial" onclick="window.location.href='especial.html'">Ver mensagem especial</button>
+    </div>
+
     <style>
     .namorados-box {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .especial-box {
         margin-top: 40px;
         padding: 20px;
         background-color: white;
@@ -147,6 +164,16 @@
     }
     .btn-desafio:hover {
         background-color: #ec407a;
+    }
+    #btn-especial {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: #c62828;
+        color: white;
+        cursor: pointer;
     }
 
     </style>

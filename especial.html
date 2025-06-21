@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um dia especial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #b81d24, #ffd700);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      gap: 40px;
+      padding: 20px;
+    }
+    .back-button {
+      background-color: #b81d24;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+    }
+    h1 {
+      color: #b81d24;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    .heart {
+      font-size: 2rem;
+      color: #e63946;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: 350px;        /* Altura fixa */
+      object-fit: contain;  /* Mostra a imagem inteira, sem cortar */
+      border-radius: 10px;
+      background: #fff;     /* Opcional: fundo branco para imagens menores */
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #b81d24;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0.8;
+    }
+    .arrow.left {
+      left: 10px;
+    }
+    .arrow.right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Um dos dias mais importantes da minha vida</h1>
+
+    <div class="carousel">
+      <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+      <div class="slides" id="slideContainer">
+        <div class="slide"><img src="images/especial/imagem (1).jpg" alt="Foto 1"></div>
+        <div class="slide"><img src="images/especial/imagem (2).jpg" alt="Foto 2"></div>
+        <div class="slide"><img src="images/especial/imagem (3).jpg" alt="Foto 3"></div>
+        <div class="slide"><img src="images/especial/imagem (4).jpg" alt="Foto 4"></div>
+        <div class="slide"><img src="images/especial/imagem (5).jpg" alt="Foto 5"></div>
+        <div class="slide"><img src="images/especial/imagem (6).jpg" alt="Foto 6"></div>
+        <div class="slide"><img src="images/especial/imagem (7).jpg" alt="Foto 7"></div>
+        <div class="slide"><img src="images/especial/imagem (8).jpg" alt="Foto 8"></div>
+        <div class="slide"><img src="images/especial/imagem (9).jpg" alt="Foto 9"></div>
+        <div class="slide"><img src="images/especial/imagem (10).jpg" alt="Foto 10"></div>
+        <div class="slide"><img src="images/especial/imagem (11).jpg" alt="Foto 11"></div>
+        <div class="slide"><img src="images/especial/imagem (12).jpg" alt="Foto 12"></div>
+        <div class="slide"><img src="images/especial/imagem (13).jpg" alt="Foto 13"></div>
+        <div class="slide"><img src="images/especial/imagem (14).jpg" alt="Foto 14"></div>
+        <div class="slide"><img src="images/especial/imagem (15).jpg" alt="Foto 15"></div>
+        <div class="slide"><img src="images/especial/imagem (16).jpg" alt="Foto 16"></div>
+        <div class="slide"><img src="images/especial/imagem (17).jpg" alt="Foto 17"></div>
+        <div class="slide"><img src="images/especial/imagem (18).jpg" alt="Foto 18"></div>
+        <div class="slide"><img src="images/especial/imagem (19).jpg" alt="Foto 19"></div>
+        <div class="slide"><img src="images/especial/imagem (20).jpg" alt="Foto 20"></div>
+        <div class="slide"><img src="images/especial/imagem (21).jpg" alt="Foto 21"></div>
+        <div class="slide"><img src="images/especial/imagem (22).jpg" alt="Foto 22"></div>
+        <div class="slide"><img src="images/especial/imagem (23).jpg" alt="Foto 23"></div>
+        <div class="slide"><img src="images/especial/imagem (24).jpg" alt="Foto 24"></div>
+        <div class="slide"><img src="images/especial/imagem (25).jpg" alt="Foto 25"></div>
+        <div class="slide"><img src="images/especial/imagem (26).jpg" alt="Foto 26"></div>
+        <div class="slide"><img src="images/especial/imagem (27).jpg" alt="Foto 27"></div>
+        <div class="slide"><img src="images/especial/imagem (28).jpg" alt="Foto 28"></div>
+        <div class="slide"><img src="images/especial/imagem (29).jpg" alt="Foto 29"></div>
+        <div class="slide"><img src="images/especial/imagem (30).jpg" alt="Foto 30"></div>
+        <div class="slide"><img src="images/especial/imagem (31).jpg" alt="Foto 31"></div>
+        <div class="slide"><img src="images/especial/imagem (32).jpg" alt="Foto 32"></div>
+        <div class="slide"><img src="images/especial/imagem (33).jpg" alt="Foto 33"></div>
+        <div class="slide"><img src="images/especial/imagem (34).jpg" alt="Foto 34"></div>
+        <div class="slide"><img src="images/especial/imagem (35).jpg" alt="Foto 35"></div>
+        <div class="slide"><img src="images/especial/imagem (36).jpg" alt="Foto 36"></div>
+        <div class="slide"><img src="images/especial/imagem (37).jpg" alt="Foto 37"></div>
+        <div class="slide"><img src="images/especial/imagem (38).jpg" alt="Foto 38"></div>
+        <div class="slide"><img src="images/especial/imagem (39).jpg" alt="Foto 39"></div>
+        <div class="slide"><img src="images/especial/imagem (40).jpg" alt="Foto 40"></div>
+        <div class="slide"><img src="images/especial/imagem (41).jpg" alt="Foto 41"></div>
+        <div class="slide"><img src="images/especial/imagem (42).jpg" alt="Foto 42"></div>
+        <div class="slide"><img src="images/especial/imagem (43).jpg" alt="Foto 43"></div>
+        <div class="slide"><img src="images/especial/imagem (44).jpg" alt="Foto 44"></div>
+        <div class="slide"><img src="images/especial/imagem (45).jpg" alt="Foto 45"></div>
+        <div class="slide"><img src="images/especial/imagem (46).jpg" alt="Foto 46"></div>
+        <div class="slide"><img src="images/especial/imagem (47).jpg" alt="Foto 47"></div>
+        <div class="slide"><img src="images/especial/imagem (48).jpg" alt="Foto 48"></div>
+        <div class="slide"><img src="images/especial/imagem (49).jpg" alt="Foto 49"></div>
+        <div class="slide"><img src="images/especial/imagem (50).jpg" alt="Foto 50"></div>
+        <div class="slide"><img src="images/especial/imagem (51).jpg" alt="Foto 51"></div>
+        <div class="slide"><img src="images/especial/imagem (52).jpg" alt="Foto 52"></div>
+        <div class="slide"><img src="images/especial/imagem (53).jpg" alt="Foto 53"></div>
+        <div class="slide"><img src="images/especial/imagem (54).jpg" alt="Foto 54"></div>
+        <div class="slide"><img src="images/especial/imagem (55).jpg" alt="Foto 55"></div>
+        <div class="slide"><img src="images/especial/imagem (56).jpg" alt="Foto 56"></div>
+        <div class="slide"><img src="images/especial/imagem (57).jpg" alt="Foto 57"></div>
+        <div class="slide"><img src="images/especial/imagem (58).jpg" alt="Foto 58"></div>
+        <div class="slide"><img src="images/especial/imagem (59).jpg" alt="Foto 59"></div>
+        <div class="slide"><img src="images/especial/imagem (60).jpg" alt="Foto 60"></div>
+        <div class="slide"><img src="images/especial/imagem (61).jpg" alt="Foto 61"></div>
+        <div class="slide"><img src="images/especial/imagem (62).jpg" alt="Foto 62"></div>
+        <div class="slide"><img src="images/especial/imagem (63).jpg" alt="Foto 63"></div>
+        <div class="slide"><img src="images/especial/imagem (64).jpg" alt="Foto 64"></div>
+        <div class="slide"><img src="images/especial/imagem (65).jpg" alt="Foto 65"></div>
+        <div class="slide"><img src="images/especial/imagem (66).jpg" alt="Foto 66"></div>
+        <div class="slide"><img src="images/especial/imagem (67).jpg" alt="Foto 67"></div>
+        <div class="slide"><img src="images/especial/imagem (68).jpg" alt="Foto 68"></div>
+        <div class="slide"><img src="images/especial/imagem (69).jpg" alt="Foto 69"></div>
+        <div class="slide"><img src="images/especial/imagem (70).jpg" alt="Foto 70"></div>
+        <div class="slide"><img src="images/especial/imagem (71).jpg" alt="Foto 71"></div>
+        <div class="slide"><img src="images/especial/imagem (72).jpg" alt="Foto 72"></div>
+        <div class="slide"><img src="images/especial/imagem (73).jpg" alt="Foto 73"></div>
+        <div class="slide"><img src="images/especial/imagem (74).jpg" alt="Foto 74"></div>
+        <div class="slide"><img src="images/especial/imagem (75).jpg" alt="Foto 75"></div>
+        <div class="slide"><img src="images/especial/imagem (76).jpg" alt="Foto 76"></div>
+        <div class="slide"><img src="images/especial/imagem (77).jpg" alt="Foto 77"></div>
+        <div class="slide"><img src="images/especial/imagem (78).jpg" alt="Foto 78"></div>
+      </div>
+      <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <p>
+      
+        Hoje eu não iria fazer nada de espcial, ia ser só um passeio para passarmos um dia que é de certa forma especial para nós, juntos, mas ontem (sexta) quando eu fui no estúdio te ver um pouquinho, literalmente voltando do trabalho, eu tive um vislumbre da vida que eu quero ter com você, chegar em casa depois do trabalho, te ver, te abraçar, te cheirar, te beijar, cozinhar pra você, almoçar com você, eu quero ter isso, por anos e anos e anos que ainda virão, estar com você durante esses (2 meses?) tem sido incrível, são 2 meses que já parecem uma eternidade, são 2 meses que você me proporciona sensações e sentimentos que eu nunca senti antes, que eu nem sabia que existiam, obrigado, mais uma das infinitas vezes, por tudo que você fez e faz por mim, obrigadso por me completar, por me acolher, por me compreender, por me amar, obrigado por ter me aceito no dia 01/05, obrigado por ter me convidado para sair no dia 21/04, obrigado por tudo, obrigado por ser essa mulher INCRÍVEL que você é, obrigado por toda a sua força, mas também por toda a sua sensibilidade, obrigado por todos os sorrisos que você fez eu dar e você também deu, e quanto as lágrimas, eu sempre vou estar aqui pra exugá-las, eu sempre vou estar aqui pra te apoiar, pra te ouvir, pra te fazer rir, pra te fazer feliz, eu sempre vou estar aqui pra você, independente do que aconteça, independente do que seja, eu sempre vou estar aqui. Eu te amo, eu te amo muito!
+
+    <p class="heart">&#10084;&#65039;</p>
+
+    <a class="back-button" href="home.html">Voltar para o início</a>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slideContainer");
+    const totalSlides = slides.children.length;
+
+    function updateCarousel() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function autoSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    setInterval(autoSlide, 4000); // troca a cada 4 segundos
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+  </script>
+</body>
+</html>
