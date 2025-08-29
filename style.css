@@ -398,3 +398,28 @@ footer {
         width: 100%;
     }
 }
+
+/* --- Sticky Footer --- */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Isso faz o conteúdo principal "crescer" e empurrar o rodapé para baixo */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
