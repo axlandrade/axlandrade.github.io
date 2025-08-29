@@ -97,7 +97,7 @@ ul {
 /* --- Header e Navigation --- */
 header {
     background-color: var(--header-dark);
-    padding: 1.5rem 0;
+    padding: 0.4rem 0;
     position: sticky;
     /* Cabeçalho fixo no topo */
     top: 0;
@@ -411,7 +411,7 @@ section:last-of-type {
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 3rem 0;
+    padding: 1.5rem 0;
     background-color: var(--secondary-dark);
     color: var(--text-light);
     font-size: 0.9rem;
