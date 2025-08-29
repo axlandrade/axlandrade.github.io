@@ -1,0 +1,92 @@
+/* Importando uma fonte do Google Fonts (opcional, mas recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Reset básico para remover espaçamentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte para o texto principal */
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    color: #333; /* Cor do texto principal */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Fonte para títulos */
+    color: #004d66; /* Uma cor de destaque para títulos */
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Estilo do cabeçalho da página inicial (hero-section) */
+.hero-section {
+    background-color: #004d66; /* Azul escuro, profissional */
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #fff; /* Título em branco para contraste */
+}
+
+/* Estilo para a barra de navegação nas outras páginas */
+nav {
+    background-color: #00334d; /* Azul ainda mais escuro para a barra de navegação */
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para todas as seções de conteúdo */
+.content-section, #destaque {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave para profundidade */
+}
+
+/* Estilo para botões (chamadas para ação) */
+.btn {
+    display: inline-block;
+    background-color: #006699; /* Um azul vibrante */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Efeito de transição suave */
+}
+
+.btn:hover {
+    background-color: #004d66;
+}
+
+/* Estilo para o rodapé */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 2rem;
+}
