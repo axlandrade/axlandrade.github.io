@@ -374,9 +374,26 @@ footer {
         gap: 2rem;
     }
     .profile-image {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 2rem;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid var(--accent-color); /* Borda ao redor da imagem */
+        
+        /* Efeito de brilho / sombra com mais profundidade */
+        box-shadow: 0 0 15px rgba(255, 127, 80, 0.6), /* Brilho principal */
+                    0 0 30px rgba(255, 127, 80, 0.3), /* Brilho secundário */
+                    0 0 45px rgba(255, 127, 80, 0.1); /* Brilho terciário (mais sutil) */
+        
+        transition: box-shadow 0.5s ease-in-out; /* Transição suave para o efeito */
+    }
+
+    /* Opcional: Adicionar um efeito ao passar o mouse para intensificar o brilho */
+    .profile-image:hover {
+        box-shadow: 0 0 20px rgba(255, 127, 80, 0.8),
+                    0 0 40px rgba(255, 127, 80, 0.5),
+                    0 0 60px rgba(255, 127, 80, 0.2);
     }
     .cta-buttons {
         flex-direction: column;
