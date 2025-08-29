@@ -419,7 +419,8 @@ html, body {
 }
 
 main {
-    flex: 1; /* Isso faz o conteúdo principal "crescer" e empurrar o rodapé para baixo */
+    flex: 1; /* Mantém o rodapé fixo */
+    padding-top: 5rem; /* Adiciona o espaçamento no topo */
 }
 
 /* --- Footer --- */
