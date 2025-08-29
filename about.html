@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
 
     <div class="site-wrapper">
@@ -30,14 +32,19 @@
                 <div class="about-info">
                     <h3 data-aos="fade-up" data-aos-delay="100">Minha Jornada</h3>
                     <p data-aos="fade-up" data-aos-delay="200">
-                        Minha trajetória é uma fusão do rigor matemático, da lógica da programação e da aplicação prática da tecnologia. Sou um pesquisador e desenvolvedor com uma paixão por resolver problemas complexos e transformar dados em insights valiosos.
+                        Minha trajetória é uma fusão do rigor matemático, da lógica da programação e da aplicação
+                        prática da tecnologia. Sou um pesquisador e desenvolvedor com uma paixão por resolver problemas
+                        complexos e transformar dados em insights valiosos.
                     </p>
 
                     <h3 data-aos="fade-up" data-aos-delay="300">Formação Acadêmica</h3>
                     <ul data-aos="fade-up" data-aos-delay="400">
-                        <li><strong>Mestrado em Modelagem Matemática e Computacional:</strong> Universidade Federal Rural do Rio de Janeiro (UFRRJ) - Em andamento.</li>
-                        <li><strong>Graduação em Matemática:</strong> UFRRJ (2025) - Título do trabalho de conclusão de curso: "Séries de Fourier e as notas musicais".</li>
-                        <li><strong>Graduação em Gestão da Tecnologia da Informação:</strong> Universidade Estácio de Sá (UNESA, 2023).</li>
+                        <li><strong>Mestrado em Modelagem Matemática e Computacional:</strong> Universidade Federal
+                            Rural do Rio de Janeiro (UFRRJ) - Em andamento.</li>
+                        <li><strong>Graduação em Matemática:</strong> UFRRJ (2025) - Título do trabalho de conclusão de
+                            curso: "Séries de Fourier e as notas musicais".</li>
+                        <li><strong>Graduação em Gestão da Tecnologia da Informação:</strong> Universidade Estácio de Sá
+                            (UNESA, 2023).</li>
                         <li><strong>Graduação em Física:</strong> UNESA - Em andamento.</li>
                     </ul>
 
@@ -58,14 +65,25 @@
         </main>
 
         <footer>
-        <div class="container">
-            <p>2025 Axl Andrade. Todos os direitos reservados.</p>
-        </div>
+            <div class="container">
+                <p>2025 Axl Andrade. Todos os direitos reservados.</p>
+            </div>
         </footer>
+
+        <script>
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
-    </script> 
+    </script>
 </body>
+
 </html>

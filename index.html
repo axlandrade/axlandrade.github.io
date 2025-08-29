@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
 
     <div class="site-wrapper">
         <header>
             <div class="container">
                 <a href="index.html" class="logo">Axl Andrade</a>
-                <nav>
+                <button class="hamburger-menu" aria-label="Toggle navigation">
+                    &#9776; </button>
+                <nav class="nav-menu">
                     <ul>
-                        <li><a href="index.html"  class="active">Início</a></li>
-                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="index.html">Início</a></li>
                         <li><a href="about.html">Sobre</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,24 +46,33 @@
             </section>
 
             <section class="container skills-container" data-aos="fade-up">
-            <h2 class="section-title">Habilidades e Tecnologias</h2>
-            <ul class="skills-list">
-                <li class="skill-item">Matemática</li>
-                <li class="skill-item">Modelagem Computacional</li>
-                <li class="skill-item">Python</li>
-                <li class="skill-item">R</li>
-                <li class="skill-item">Análise de Dados</li>
-                <li class="skill-item">HTML & CSS</li>
-                <li class="skill-item">Gestão de TI</li>
-            </ul>
-        </section>
+                <h2 class="section-title">Habilidades e Tecnologias</h2>
+                <ul class="skills-list">
+                    <li class="skill-item">Matemática</li>
+                    <li class="skill-item">Modelagem Computacional</li>
+                    <li class="skill-item">Python</li>
+                    <li class="skill-item">R</li>
+                    <li class="skill-item">Análise de Dados</li>
+                    <li class="skill-item">HTML & CSS</li>
+                    <li class="skill-item">Gestão de TI</li>
+                </ul>
+            </section>
         </main>
-        
+
         <footer>
             <div class="container">
                 <p>2025 Axl Andrade. Todos os direitos reservados.</p>
             </div>
         </footer>
+
+        <script>
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        </script>
 
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -67,4 +80,5 @@
         AOS.init();
     </script>
 </body>
+
 </html>

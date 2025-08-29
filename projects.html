@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
 
     <div class="site-wrapper">
@@ -28,36 +30,51 @@
                 <h2 class="section-title">Meus Projetos</h2>
                 <div class="project-grid">
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/MusicaPython.png" alt="Imagem do Projeto MusicaPython">
-                    <div class="project-content">
-                        <h3>MusicaPython</h3>
-                        <p>Síntese de áudio em Python: Geração de um arquivo .wav da canção 'Brilha Brilha Estrelinha' com ondas senoidais, sobretons e envelopes ADSR.</p>
-                        <a href="https://github.com/axlandrade/MusicaPython" class="btn btn-primary">Ver no GitHub</a>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/MusicaPython.png" alt="Imagem do Projeto MusicaPython">
+                        <div class="project-content">
+                            <h3>MusicaPython</h3>
+                            <p>Síntese de áudio em Python: Geração de um arquivo .wav da canção 'Brilha Brilha
+                                Estrelinha' com ondas senoidais, sobretons e envelopes ADSR.</p>
+                            <a href="https://github.com/axlandrade/MusicaPython" class="btn btn-primary">Ver no
+                                GitHub</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/ga.png" alt="Imagem do Projeto GA Multipath Routing">
-                    <div class="project-content">
-                        <h3>GA Multipath Routing</h3>
-                        <p>Optimizing data flow and minimizing latency in ad hoc networks using a Genetic Algorithm approach.</p>
-                        <a href="https://github.com/axlandrade?tab=repositories" class="btn btn-primary">Ver no GitHub</a>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/ga.png" alt="Imagem do Projeto GA Multipath Routing">
+                        <div class="project-content">
+                            <h3>GA Multipath Routing</h3>
+                            <p>Optimizing data flow and minimizing latency in ad hoc networks using a Genetic Algorithm
+                                approach.</p>
+                            <a href="https://github.com/axlandrade?tab=repositories" class="btn btn-primary">Ver no
+                                GitHub</a>
+                        </div>
                     </div>
-                </div>
 
                 </div>
             </section>
         </main>
         <footer>
-        <div class="container">
-            <p>2025 Axl Andrade. Todos os direitos reservados.</p>
-        </div>
+            <div class="container">
+                <p>2025 Axl Andrade. Todos os direitos reservados.</p>
+            </div>
         </footer>
     </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
 </body>
+
 </html>
