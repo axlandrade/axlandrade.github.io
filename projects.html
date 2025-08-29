@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - Axl Andrade</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -27,7 +28,7 @@
                 <h2 class="section-title">Meus Projetos</h2>
                 <div class="project-grid">
 
-                    <div class="project-card">
+                    <div class="project-card" data-aos="fade-up">
                         <img src="images/MusicaPython.png" alt="Imagem do Projeto 1">
                         <div class="project-content">
                             <h3>MusicaPython</h3>
@@ -36,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                         <img src="images/ga.png" alt="Imagem do Projeto 2">
                         <div class="project-content">
                             <h3>GA Multipath Routing</h3>
@@ -54,5 +55,9 @@
         </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
