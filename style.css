@@ -248,12 +248,19 @@ section:last-of-type {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 1.5rem 1.5rem; /* Espaçamento entre as linhas e entre os itens */
     margin-top: 3rem;
-    padding-bottom: 4rem; /* Espaçamento extra abaixo das skills */
-    border-bottom: 1px solid var(--secondary-dark);
+    padding-bottom: 4rem;
+    /* Remover a borda inferior daqui se ela estiver aparecendo indesejavelmente */
+    /* border-bottom: 1px solid var(--secondary-dark); */
 }
+
+/* Opcional: Se a borda inferior da seção geral já for suficiente, você pode remover a linha acima */
+/* E talvez envolver as habilidades em um contêiner `.container` se ainda não estiverem */
+
+/* Se o título da seção de habilidades estiver dentro de um `.container` */
+/* e estiver usando a classe `section-title`, ele já deve estar centralizado. */
 
 .skill-item {
     background-color: var(--secondary-dark);
