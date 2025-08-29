@@ -7,33 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="sobre.html">Sobre</a>
-        </nav>
+        <div class="container">
+            <a href="index.html" class="logo">Axlandrade</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="content-section">
-        <h2>Meus Projetos</h2>
-        <p>Aqui estão alguns dos projetos em que estive envolvido, tanto na pesquisa quanto na gestão de TI.</p>
+    <main>
+        <section class="container">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="project-grid">
 
-        <section class="projeto-item">
-            <h3>Título do Projeto 1</h3>
-            <p>Uma breve descrição do projeto, com o seu papel nele, os resultados e as tecnologias usadas.</p>
-            <a href="#">Ver detalhes no GitHub</a>
-        </section>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Imagem+do+Projeto+1" alt="Imagem do Projeto 1">
+                    <div class="project-content">
+                        <h3>Título do Projeto 1</h3>
+                        <p>Uma breve descrição do projeto, com o seu papel nele, os resultados e as tecnologias usadas.</p>
+                        <a href="https://github.com/axlandrade/nome-do-projeto-1" class="btn btn-primary">Ver no GitHub</a>
+                    </div>
+                </div>
 
-        <section class="projeto-item">
-            <h3>Título do Projeto 2</h3>
-            <p>Descrição do segundo projeto...</p>
-            <a href="#">Ver detalhes no GitHub</a>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Imagem+do+Projeto+2" alt="Imagem do Projeto 2">
+                    <div class="project-content">
+                        <h3>Título do Projeto 2</h3>
+                        <p>Descrição do segundo projeto, com detalhes sobre a aplicação da modelagem matemática ou da gestão de TI.</p>
+                        <a href="https://github.com/axlandrade/nome-do-projeto-2" class="btn btn-primary">Ver no GitHub</a>
+                    </div>
+                </div>
+
+                </div>
         </section>
-        
-        </main>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Axl Andrade. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>2025 Axl Andrade. Todos os direitos reservados.</p>
+        </div>
     </footer>
+    
 </body>
 </html>
