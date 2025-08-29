@@ -675,4 +675,48 @@ nav ul li a.active:hover {
     /* Remove padding para alinhar com o resto */
 }
 
+/* --- Ícones Sociais na Página Sobre --- */
+.social-icons-about {
+    display: flex;
+    gap: 2rem;
+    /* Aumenta o espaço entre os ícones */
+    margin-top: 1rem;
+    /* Adiciona um espaço acima dos ícones */
+}
+
+.social-icons-about a {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    /* Ícones maiores para mais destaque */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons-about a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+    /* Efeito de zoom ao invés de levantar */
+}
+
+/* --- Layout em Grid para a Página Sobre --- */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    /* Coluna da esquerda maior que a da direita */
+    gap: 4rem;
+    /* Espaço entre as colunas */
+    align-items: start;
+    /* Alinha os itens no topo de cada coluna */
+}
+
+/* --- Responsividade para a Página Sobre --- */
+/* Em telas menores, as colunas ficam uma em cima da outra */
+@media (max-width: 992px) {
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        /* Volta para uma única coluna */
+        gap: 3rem;
+        /* Diminui o espaço na vertical */
+    }
+}
+
 /* --- Fim do CSS --- */
