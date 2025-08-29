@@ -217,7 +217,7 @@ nav ul li a:hover {
 /* --- Section Styling (para as outras páginas e seções internas) --- */
 section {
     padding: 6rem 0; /* Mais espaçamento entre as seções */
-    border-bottom: 1px solid var(--secondary-dark); /* Separador entre seções */
+    /*border-bottom: 1px solid var(--secondary-dark); /* Separador entre seções */
 }
 
 section:last-of-type {
@@ -441,4 +441,14 @@ nav ul li a.active {
 nav ul li a.active:hover {
     color: var(--accent-light);
     border-bottom: 2px solid var(--accent-light);
+}
+
+.skills-container {
+    text-align: center;
+}
+
+.skills-container .section-title {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
