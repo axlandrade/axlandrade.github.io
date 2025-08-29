@@ -10,6 +10,8 @@
 :root {
     --bg-dark: #1a1a2e;
     /* Fundo escuro */
+    --header-dark: #111122;
+    /* Um azul marinho ainda mais escuro para o cabeçalho */
     --text-light: #e0e0e0;
     /* Texto principal */
     --text-white: #ffffff;
@@ -20,9 +22,12 @@
     /* Cor de destaque mais clara */
     --secondary-dark: #2c2c47;
     /* Cor para elementos secundários escuros */
-    --header-dark: #111122;
-    /* Um azul marinho ainda mais escuro para o cabeçalho */
+}
 
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
@@ -44,6 +49,11 @@ a:hover {
     color: var(--accent-light);
 }
 
+a:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
 h1,
 h2,
 h3,
@@ -58,9 +68,9 @@ h6 {
 
 h1 {
     font-size: 3.5rem;
+    /* Mais impactante */
 }
 
-/* Mais impactante */
 h2 {
     font-size: 2.5rem;
 }
@@ -264,7 +274,6 @@ nav ul li a:hover {
 section {
     padding: 6rem 0;
     /* Mais espaçamento entre as seções */
-    /*border-bottom: 1px solid var(--secondary-dark); /* Separador entre seções */
 }
 
 section:last-of-type {
@@ -302,15 +311,7 @@ section:last-of-type {
     /* Espaçamento entre as linhas e entre os itens */
     margin-top: 3rem;
     padding-bottom: 4rem;
-    /* Remover a borda inferior daqui se ela estiver aparecendo indesejavelmente */
-    /* border-bottom: 1px solid var(--secondary-dark); */
 }
-
-/* Opcional: Se a borda inferior da seção geral já for suficiente, você pode remover a linha acima */
-/* E talvez envolver as habilidades em um contêiner `.container` se ainda não estiverem */
-
-/* Se o título da seção de habilidades estiver dentro de um `.container` */
-/* e estiver usando a classe `section-title`, ele já deve estar centralizado. */
 
 .skill-item {
     background-color: var(--secondary-dark);
@@ -416,7 +417,73 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Responsividade (Mobile First - Ajustes para telas maiores) --- */
+/* --- Sticky Footer --- */
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    /* Mantém o rodapé fixo */
+}
+
+.first-section {
+    padding-top: 5rem;
+}
+
+/* --- Estilo para o link da página ativa no menu --- */
+nav ul li a.active {
+    color: var(--accent-color) !important;
+    /* Cor de destaque */
+    border-bottom: 2px solid var(--accent-color) !important;
+    font-weight: 700;
+    /* Deixar em negrito para reforçar */
+}
+
+nav ul li a.active:hover {
+    color: var(--accent-light);
+    border-bottom: 2px solid var(--accent-light);
+}
+
+/* --- Habilidades Container --- */
+.skills-container {
+    text-align: center;
+}
+
+.skills-container .section-title {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Animações --- */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 127, 80, 0.5), 0 0 10px rgba(255, 127, 80, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 127, 80, 0.8), 0 0 40px rgba(255, 127, 80, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 127, 80, 0.5), 0 0 10px rgba(255, 127, 80, 0.3);
+    }
+}
+
+/* --- Responsividade (Mobile First - Ajustes para telas menores) --- */
+.hamburger-menu {
+    display: none;
+    background: transparent;
+    color: var(--text-white);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
@@ -440,25 +507,8 @@ footer {
         overflow: hidden;
         position: relative;
         border: 5px solid var(--accent-color);
-        /* Borda ao redor da imagem */
-
-        /* Efeito de brilho / sombra com mais profundidade */
-        box-shadow: 0 0 15px rgba(255, 127, 80, 0.6),
-            /* Brilho principal */
-            0 0 30px rgba(255, 127, 80, 0.3),
-            /* Brilho secundário */
-            0 0 45px rgba(255, 127, 80, 0.1);
-        /* Brilho terciário (mais sutil) */
-
-        transition: box-shadow 0.5s ease-in-out;
-        /* Transição suave para o efeito */
-    }
-
-    /* Opcional: Adicionar um efeito ao passar o mouse para intensificar o brilho */
-    .profile-image:hover {
-        box-shadow: 0 0 20px rgba(255, 127, 80, 0.8),
-            0 0 40px rgba(255, 127, 80, 0.5),
-            0 0 60px rgba(255, 127, 80, 0.2);
+        animation: none;
+        /* Remove o pulso para evitar consumo de bateria */
     }
 
     .cta-buttons {
@@ -466,14 +516,44 @@ footer {
         gap: 1rem;
     }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+    .hamburger-menu {
+        display: block;
     }
 
-    nav ul li {
-        margin-left: 0;
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(28, 28, 47, 0.95);
+        /* Semi-transparente para o fundo */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        /* Garante que o menu ocupe o espaço */
+        align-items: center;
+        /* Alinha o conteúdo verticalmente */
+        justify-content: center;
+        /* Alinha o conteúdo horizontalmente */
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .nav-menu ul li a {
+        font-size: 2rem;
     }
 
     .about-grid {
@@ -499,123 +579,4 @@ footer {
     .btn {
         width: 100%;
     }
-}
-
-/* --- Sticky Footer --- */
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
-
-.site-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-    /* Mantém o rodapé fixo */
-}
-
-.first-section {
-    padding-top: 5rem;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 3rem 0;
-    background-color: var(--secondary-dark);
-    color: var(--text-light);
-    font-size: 0.9rem;
-}
-
-/* --- Estilo para o link da página ativa no menu --- */
-nav ul li a.active {
-    color: var(--accent-color) !important;
-    /* Cor de destaque */
-    border-bottom: 2px solid var(--accent-color) !important;
-    font-weight: 700;
-    /* Deixar em negrito para reforçar */
-}
-
-nav ul li a.active:hover {
-    color: var(--accent-light);
-    border-bottom: 2px solid var(--accent-light);
-}
-
-.skills-container {
-    text-align: center;
-}
-
-.skills-container .section-title {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 5px rgba(255, 127, 80, 0.5), 0 0 10px rgba(255, 127, 80, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(255, 127, 80, 0.8), 0 0 40px rgba(255, 127, 80, 0.5);
-    }
-
-    100% {
-        box-shadow: 0 0 5px rgba(255, 127, 80, 0.5), 0 0 10px rgba(255, 127, 80, 0.3);
-    }
-}
-
-.hamburger-menu {
-    display: none;
-    background: transparent;
-    color: var(--text-white);
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    header .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        text-align: center;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--secondary-dark);
-        padding-top: 5rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .nav-menu.active ul {
-        transform: translateX(0);
-    }
-
-    .nav-menu ul li {
-        margin: 1rem 0;
-    }
-}
-
-/* Efeito de feedback ao tocar nos botões e links */
-.btn:active,
-a:active {
-    transform: scale(0.95);
-    opacity: 0.8;
 }
