@@ -423,3 +423,15 @@ footer {
     color: var(--text-light);
     font-size: 0.9rem;
 }
+
+/* --- Estilo para o link da página ativa no menu --- */
+nav ul li a.active {
+    color: var(--accent-color) !important; /* Cor de destaque */
+    border-bottom: 2px solid var(--accent-color) !important;
+    font-weight: 700; /* Deixar em negrito para reforçar */
+}
+
+nav ul li a.active:hover {
+    color: var(--accent-light);
+    border-bottom: 2px solid var(--accent-light);
+}
