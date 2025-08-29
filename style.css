@@ -312,6 +312,7 @@ section:last-of-type {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .project-card {
@@ -420,7 +421,10 @@ html, body {
 
 main {
     flex: 1; /* Mantém o rodapé fixo */
-    padding-top: 5rem; /* Adiciona o espaçamento no topo */
+}
+
+.first-section {
+    padding-top: 5rem;
 }
 
 /* --- Footer --- */
