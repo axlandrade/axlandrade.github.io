@@ -1,92 +1,400 @@
-/* Importando uma fonte do Google Fonts (opcional, mas recomendado) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+/* --- Global Styles & Reset --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap');
 
-/* Reset básico para remover espaçamentos padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --bg-dark: #1a1a2e; /* Fundo escuro */
+    --text-light: #e0e0e0; /* Texto principal */
+    --text-white: #ffffff; /* Texto branco puro */
+    --accent-color: #ff7f50; /* Cor de destaque (coral) */
+    --accent-light: #ffab91; /* Cor de destaque mais clara */
+    --secondary-dark: #2c2c47; /* Cor para elementos secundários escuros */
+}
+
 body {
-    font-family: 'Roboto', sans-serif; /* Fonte para o texto principal */
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Cor de fundo suave */
-    color: #333; /* Cor do texto principal */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif; /* Fonte para títulos */
-    color: #004d66; /* Uma cor de destaque para títulos */
-    margin-bottom: 1rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-/* Estilo do cabeçalho da página inicial (hero-section) */
-.hero-section {
-    background-color: #004d66; /* Azul escuro, profissional */
-    color: #fff;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    color: #fff; /* Título em branco para contraste */
-}
-
-/* Estilo para a barra de navegação nas outras páginas */
-nav {
-    background-color: #00334d; /* Azul ainda mais escuro para a barra de navegação */
-    padding: 1rem;
-    text-align: center;
-}
-
-nav a {
-    color: #fff;
+a {
+    color: var(--accent-color);
     text-decoration: none;
-    margin: 0 1rem;
-    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    text-decoration: underline;
+a:hover {
+    color: var(--accent-light);
 }
 
-/* Estilo para todas as seções de conteúdo */
-.content-section, #destaque {
-    padding: 2rem;
-    max-width: 900px;
-    margin: 2rem auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave para profundidade */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-/* Estilo para botões (chamadas para ação) */
+h1 { font-size: 3.5rem; } /* Mais impactante */
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+p { margin-bottom: 1rem; }
+
+ul {
+    list-style: none; /* Remove marcadores de lista padrão */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Header e Navigation --- */
+header {
+    background-color: var(--bg-dark);
+    padding: 1.5rem 0;
+    position: sticky; /* Cabeçalho fixo no topo */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--secondary-dark); /* Linha sutil no rodapé */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2.5rem;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 0.2rem;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Hero Section (Landing Page) --- */
+.hero-section {
+    min-height: calc(100vh - 80px); /* Ocupa a altura da tela menos o header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left; /* Alinhe o texto à esquerda */
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden; /* Para esconder elementos que saiam do container */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto e a imagem */
+    justify-content: space-between;
+    gap: 4rem; /* Espaçamento entre o texto e a imagem */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    flex: 1; /* Ocupa o espaço disponível */
+    max-width: 600px; /* Limita a largura do texto */
+}
+
+.hero-text .greeting {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+    font-size: 4rem; /* Ainda maior para impacto */
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block; /* Para o detalhe de linha */
+}
+
+.hero-text h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Posição da linha */
+    width: 80%; /* Largura da linha */
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.hero-text .role {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 5px solid var(--accent-color); /* Borda ao redor da imagem */
+    box-shadow: 0 0 0 10px rgba(255, 127, 80, 0.2); /* Sombra externa como na imagem */
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Call to Action Buttons --- */
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex; /* Para os botões ficarem lado a lado */
+    gap: 1.5rem;
+}
+
 .btn {
     display: inline-block;
-    background-color: #006699; /* Um azul vibrante */
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
+    padding: 1rem 2.5rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Efeito de transição suave */
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
 }
 
-.btn:hover {
-    background-color: #004d66;
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-white);
 }
 
-/* Estilo para o rodapé */
+.btn-primary:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+    transform: translateY(-3px);
+}
+
+/* --- Section Styling (para as outras páginas e seções internas) --- */
+section {
+    padding: 6rem 0; /* Mais espaçamento entre as seções */
+    border-bottom: 1px solid var(--secondary-dark); /* Separador entre seções */
+}
+
+section:last-of-type {
+    border-bottom: none; /* Remove a borda da última seção */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* --- Habilidades/Tecnologias (como na imagem) --- */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-bottom: 4rem; /* Espaçamento extra abaixo das skills */
+    border-bottom: 1px solid var(--secondary-dark);
+}
+
+.skill-item {
+    background-color: var(--secondary-dark);
+    color: var(--text-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px; /* Borda mais arredondada */
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- About Section Specifics --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coluna para ícones e outra para texto */
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-info h3 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-details {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+
+.detail-item strong {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.detail-item span {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* --- Project Section Specifics --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--secondary-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-content {
+    padding: 1.8rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--accent-color);
+}
+
+.project-content p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.project-content .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- Footer --- */
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
-    margin-top: 2rem;
+    padding: 3rem 0;
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* --- Responsividade (Mobile First - Ajustes para telas maiores) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .hero-content {
+        flex-direction: column; /* Pilha os elementos no mobile */
+        text-align: center;
+        gap: 2rem;
+    }
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 2rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    nav ul li {
+        margin-left: 0;
+    }
+    .about-grid {
+        grid-template-columns: 1fr; /* Uma coluna no mobile */
+        gap: 2rem;
+    }
+    .section-title::after {
+        bottom: -10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    .btn {
+        width: 100%;
+    }
 }
