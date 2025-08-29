@@ -424,13 +424,27 @@ footer {
     flex-direction: column;
 }
 
+/* Correção para Centralização Vertical do Footer */
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3rem;
+    /* Define uma altura mínima para o footer */
+}
+
+footer p {
+    margin-bottom: 0;
+    /* Remove a margem inferior padrão do parágrafo */
+}
+
 main {
     flex: 1;
     /* Mantém o rodapé fixo */
 }
 
 .first-section {
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 
 /* --- Estilo para o link da página ativa no menu --- */
