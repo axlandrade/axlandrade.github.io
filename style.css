@@ -623,4 +623,51 @@ nav ul li a.active:hover {
     font-weight: 700;
 }
 
+/* Ajustes para Habilidades na Hero Section */
+.hero-section .skills-container {
+    margin-top: 4rem;
+    /* Adiciona espaço acima do título das habilidades */
+    text-align: left;
+    /* Alinha tudo à esquerda */
+}
+
+.hero-section .skills-container .section-title {
+    font-size: 1.5rem;
+    /* Diminui o título */
+    text-align: left;
+    /* Garante o alinhamento à esquerda */
+    margin-bottom: 1.5rem;
+    /* Ajusta o espaço abaixo do título */
+}
+
+/* Remove a linha decorativa centralizada do título APENAS na hero section */
+.hero-section .skills-container .section-title::after {
+    display: none;
+}
+
+.hero-section .skills-list {
+    justify-content: flex-start;
+    /* Alinha os itens da lista à esquerda */
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+/* Refinamento do Alinhamento na Hero Section */
+.hero-text h1::before {
+    left: 0;
+    /* Garante que a linha decorativa comece no mesmo ponto do texto */
+}
+
+.hero-text .cta-buttons {
+    justify-content: flex-start;
+    /* Alinha os botões ao início do container */
+    padding-left: 0;
+    /* Remove qualquer padding esquerdo se houver */
+}
+
+.hero-section .skills-container {
+    padding-left: 0;
+    /* Remove padding para alinhar com o resto */
+}
+
 /* --- Fim do CSS --- */
