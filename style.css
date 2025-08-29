@@ -10,7 +10,7 @@
 :root {
     --bg-dark: #1a1a2e;
     /* Fundo escuro */
-    --header-dark: #111122;
+    --header-dark: #1c1f27;
     /* Um azul marinho ainda mais escuro para o cabeçalho */
     --text-light: #e0e0e0;
     /* Texto principal */
@@ -580,3 +580,33 @@ nav ul li a.active:hover {
         width: 100%;
     }
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    /* Alinha a imagem e o texto verticalmente */
+    gap: 10px;
+    /* Adiciona um espaço de 10px entre a imagem e o nome */
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    color: var(--text-white);
+    /* Garante que o texto tenha a cor branca */
+}
+
+.logo-image {
+    height: 70px;
+    /* Altura da imagem */
+    width: 70px;
+    /* Largura da imagem */
+    object-fit: contain;
+    /* Garante que a imagem se ajuste ao espaço sem distorção */
+}
+
+.logo span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    /* Tamanho da fonte do nome */
+    font-weight: 700;
+}
+
+/* --- Fim do CSS --- */
