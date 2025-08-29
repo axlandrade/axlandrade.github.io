@@ -20,6 +20,9 @@
     /* Cor de destaque mais clara */
     --secondary-dark: #2c2c47;
     /* Cor para elementos secundários escuros */
+    --header-dark: #111122;
+    /* Um azul marinho ainda mais escuro para o cabeçalho */
+
 }
 
 body {
@@ -83,7 +86,7 @@ ul {
 
 /* --- Header e Navigation --- */
 header {
-    background-color: var(--secondary-dark);
+    background-color: var(--header-dark);
     padding: 1.5rem 0;
     position: sticky;
     /* Cabeçalho fixo no topo */
