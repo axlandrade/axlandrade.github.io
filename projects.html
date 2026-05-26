@@ -5,32 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - Axl Andrade</title>
+    <meta name="description" content="Projetos de Axl Andrade em síntese de áudio, otimização, algoritmos genéticos e modelagem computacional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="manifest" href="images/site.webmanifest">
 </head>
 
 <body>
-
     <div class="site-wrapper">
-        <header>
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="Axl Andrade Logo" class="logo-image">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="images/logo.png" alt="" class="logo-image">
                     <span>Axl Andrade</span>
                 </a>
-                <button class="hamburger-menu" aria-label="Toggle navigation">
-                    &#9776;
+                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
-                <nav class="nav-menu">
+                <nav class="nav-menu" aria-label="Navegação principal">
                     <ul>
                         <li><a href="index.html">Início</a></li>
                         <li><a href="projects.html" class="active">Projetos</a></li>
@@ -41,39 +39,111 @@
         </header>
 
         <main>
-            <section class="container first-section">
-                <h2 class="section-title">Meus Projetos</h2>
-                <div class="project-grid">
+            <section class="container page-hero">
+                <p class="eyebrow">Vitrine técnica</p>
+                <h1>Projetos</h1>
+                <p>
+                    Uma seleção de trabalhos que combinam matemática, programação e pesquisa aplicada. Cada projeto tem
+                    uma página própria com contexto, funcionalidades e link direto para o repositório.
+                </p>
+            </section>
 
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/MusicaPython.png" alt="Imagem do Projeto MusicaPython">
-                        <div class="project-content">
-                            <h3>MusicaPython</h3>
-                            <p>SSintetizador de áudio que converte arquivos MIDI multi-instrumentais em .wav usando um
-                                motor de síntese aditiva baseado em ondas senoidais e uma UI web com Flask. Ambiente
-                                100% Dockerizado.</p>
-                            <a href="https://github.com/axlandrade/MusicaPython" class="btn btn-primary">Ver no
-                                GitHub</a>
+            <section class="container project-showcase" aria-label="Lista de projetos">
+                <article class="project-card feature-card" data-aos="fade-up">
+                    <a href="projects/musica-python/index.html" class="project-media" aria-label="Ver detalhes do MusicaPython">
+                        <img src="images/MusicaPython.png" alt="Interface do projeto MusicaPython">
+                    </a>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span>Áudio</span>
+                            <span>Python</span>
+                            <span>Flask</span>
+                        </div>
+                        <h2>MusicaPython</h2>
+                        <p>
+                            Sintetizador de áudio que converte arquivos MIDI multi-instrumentais em WAV usando síntese
+                            aditiva baseada em ondas senoidais e uma interface web simples.
+                        </p>
+                        <div class="project-actions">
+                            <a href="projects/musica-python/index.html" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Detalhes
+                            </a>
+                            <a href="https://github.com/axlandrade/MusicaPython" class="btn btn-ghost" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i>
+                                Repositório
+                            </a>
                         </div>
                     </div>
+                </article>
 
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/ga.png" alt="Imagem do Projeto GA Multipath Routing">
-                        <div class="project-content">
-                            <h3>GA Multipath Routing</h3>
-                            <p>Optimizing data flow and minimizing latency in ad hoc networks using a Genetic Algorithm
-                                approach.</p>
-                            <a href="https://github.com/axlandrade/ga-multipath-routing" class="btn btn-primary">Ver no
-                                GitHub</a>
+                <article class="project-card feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <a href="projects/ga-multipath-routing/index.html" class="project-media" aria-label="Ver detalhes do GA Multipath Routing">
+                        <img src="images/ga.png" alt="Visual do projeto GA Multipath Routing">
+                    </a>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span>Otimização</span>
+                            <span>Algoritmo Genético</span>
+                            <span>Redes</span>
+                        </div>
+                        <h2>GA Multipath Routing</h2>
+                        <p>
+                            Estudo computacional para otimizar fluxo de dados e reduzir latência em redes ad hoc por
+                            meio de uma abordagem com algoritmos genéticos.
+                        </p>
+                        <div class="project-actions">
+                            <a href="projects/ga-multipath-routing/index.html" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Detalhes
+                            </a>
+                            <a href="https://github.com/axlandrade/ga-multipath-routing" class="btn btn-ghost" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i>
+                                Repositório
+                            </a>
                         </div>
                     </div>
+                </article>
 
-                </div>
+                <article class="project-card feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <a href="projects/terminho/index.html" class="project-media project-media-word" aria-label="Ver detalhes do Terminhooo">
+                        <div class="word-preview" aria-hidden="true">
+                            <span>T</span>
+                            <span>E</span>
+                            <span>R</span>
+                            <span>M</span>
+                            <span>O</span>
+                        </div>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span>Jogo</span>
+                            <span>JavaScript</span>
+                            <span>Docker</span>
+                        </div>
+                        <h2>Terminhooo</h2>
+                        <p>
+                            Coleção de minijogos de palavras em português para jogar a dois, incluindo Termooo,
+                            Contexto e Conexo, em uma aplicação estática sem backend.
+                        </p>
+                        <div class="project-actions">
+                            <a href="projects/terminho/index.html" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Detalhes
+                            </a>
+                            <a href="https://github.com/axlandrade/terminho" class="btn btn-ghost" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i>
+                                Repositório
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </section>
         </main>
+
         <footer>
             <div class="container">
-                <p>2025 Axl Andrade. Todos os direitos reservados.</p>
+                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
             </div>
         </footer>
     </div>
@@ -83,13 +153,15 @@
         const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
         });
     </script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        if (window.AOS) {
+            AOS.init({ duration: 650, once: true });
+        }
     </script>
 </body>
 

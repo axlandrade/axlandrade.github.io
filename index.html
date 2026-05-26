@@ -5,33 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axl Andrade - Portfólio</title>
+    <meta name="description" content="Portfólio de Axl Andrade, matemático, pesquisador e desenvolvedor focado em modelagem computacional, otimização e análise de dados.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link rel="preload" as="image" href="images/hero-background.jpg">
-
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-
+    <link rel="preload" as="image" href="images/background.png">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="manifest" href="images/site.webmanifest">
 </head>
 
 <body>
-
     <div class="site-wrapper">
-        <header>
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="Axl Andrade Logo" class="logo-image">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="images/logo.png" alt="" class="logo-image">
                     <span>Axl Andrade</span>
                 </a>
-                <button class="hamburger-menu" aria-label="Toggle navigation">
-                    &#9776; </button>
-                <nav class="nav-menu">
+                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="nav-menu" aria-label="Navegação principal">
                     <ul>
                         <li><a href="index.html" class="active">Início</a></li>
                         <li><a href="projects.html">Projetos</a></li>
@@ -42,44 +40,75 @@
         </header>
 
         <main>
-            <section class="hero-section" data-aos="fade-right">
-                <div class="hero-content container">
-                    <div class="hero-text" data-aos="fade-right" data-aos-delay="100">
-                        <p class="greeting">Olá, eu sou</p>
+            <section class="hero-section">
+                <div class="container hero-content">
+                    <div class="hero-copy" data-aos="fade-up">
+                        <p class="eyebrow">Modelagem matemática, dados e software</p>
                         <h1>Axl Andrade</h1>
-                        <p class="role">Matemático, Pesquisador e Desenvolvedor</p>
-                        <div class="cta-buttons">
-                            <a href="about.html" class="btn btn-primary">Saiba mais sobre mim</a>
-                            <a href="projects.html" class="btn btn-secondary">Ver meus projetos</a>
+                        <p class="hero-lead">
+                            Transformo rigor matemático em soluções computacionais: pesquisa, otimização, análise de
+                            dados e interfaces que tornam ideias complexas mais claras.
+                        </p>
+                        <div class="hero-actions" aria-label="Ações principais">
+                            <a href="projects.html" class="btn btn-primary">
+                                <i class="fa-solid fa-folder-open"></i>
+                                Ver projetos
+                            </a>
+                            <a href="about.html" class="btn btn-secondary">
+                                <i class="fa-solid fa-user"></i>
+                                Sobre mim
+                            </a>
                         </div>
+                    </div>
 
-                        <section class="container skills-container" data-aos="fade-up">
-                            <h2 class="section-title">Habilidades e Tecnologias</h2>
-                            <ul class="skills-list">
-                                <ul class="skills-list">
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="100">Matemática</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="200">Modelagem
-                                        Computacional</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="300">Python</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="400">LaTeX</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="500">Análise de Dados</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="600">HTML & CSS</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="700">Gestão de TI</li>
-                                    <li class="skill-item" data-aos="fade-up" data-aos-delay="800">Docência</li>
-                                </ul>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="profile-image" data-aos="fade-left" data-aos-delay="200">
-                        <img src="images/selfie.jpg" alt="Foto de perfil de Axlandrade">
-                    </div>
+                    <aside class="hero-panel" data-aos="fade-left" data-aos-delay="150" aria-label="Resumo profissional">
+                        <img src="images/selfie.jpg" alt="Foto de perfil de Axl Andrade" class="profile-photo">
+                        <div>
+                            <p class="panel-kicker">Atuação</p>
+                            <h2>Matemático, pesquisador e desenvolvedor</h2>
+                        </div>
+                        <div class="quick-stats" aria-label="Áreas de atuação">
+                            <span>Python</span>
+                            <span>Otimização</span>
+                            <span>LaTeX</span>
+                            <span>Ensino</span>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="container section-block">
+                <div class="section-heading" data-aos="fade-up">
+                    <p class="eyebrow">Stack e repertório</p>
+                    <h2>Habilidades que conectam teoria e prática</h2>
+                </div>
+                <div class="skills-grid" data-aos="fade-up" data-aos-delay="100">
+                    <span><i class="fa-solid fa-square-root-variable"></i> Matemática</span>
+                    <span><i class="fa-solid fa-diagram-project"></i> Modelagem Computacional</span>
+                    <span><i class="fa-brands fa-python"></i> Python</span>
+                    <span><i class="fa-solid fa-file-lines"></i> LaTeX</span>
+                    <span><i class="fa-solid fa-chart-line"></i> Análise de Dados</span>
+                    <span><i class="fa-solid fa-code"></i> HTML &amp; CSS</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Gestão de TI</span>
+                    <span><i class="fa-solid fa-chalkboard-user"></i> Docência</span>
+                </div>
+            </section>
+
+            <section class="highlight-band">
+                <div class="container highlight-content" data-aos="fade-up">
+                    <p class="eyebrow">Projetos em destaque</p>
+                    <h2>Experimentos aplicados com matemática, áudio, redes e jogos</h2>
+                    <a href="projects.html" class="text-link">
+                        Explorar a vitrine
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </section>
         </main>
 
         <footer>
             <div class="container">
-                <p>2025 Axl Andrade. Todos os direitos reservados.</p>
+                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
             </div>
         </footer>
     </div>
@@ -89,13 +118,15 @@
         const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
         });
     </script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        if (window.AOS) {
+            AOS.init({ duration: 650, once: true });
+        }
     </script>
 </body>
 

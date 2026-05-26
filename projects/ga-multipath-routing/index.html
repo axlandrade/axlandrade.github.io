@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Multipath Routing - Axl Andrade</title>
+    <meta name="description" content="Detalhes do projeto GA Multipath Routing, estudo de otimização de rotas em redes ad hoc com algoritmo genético.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="manifest" href="../../images/site.webmanifest">
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="../../index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="../../images/logo.png" alt="" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="../../index.html">Início</a></li>
+                        <li><a href="../../projects.html" class="active">Projetos</a></li>
+                        <li><a href="../../about.html">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="container project-detail-hero">
+                <div class="project-detail-copy" data-aos="fade-up">
+                    <a href="../../projects.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar para projetos
+                    </a>
+                    <p class="eyebrow">Otimização e redes</p>
+                    <h1>GA Multipath Routing</h1>
+                    <p>
+                        Um estudo de otimização para roteamento multipercurso em redes ad hoc, usando algoritmo genético
+                        para buscar rotas mais eficientes e reduzir latência.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://github.com/axlandrade/ga-multipath-routing" class="btn btn-primary" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-github"></i>
+                            Ver repositório
+                        </a>
+                        <a href="../../projects.html" class="btn btn-secondary">
+                            <i class="fa-solid fa-layer-group"></i>
+                            Outros projetos
+                        </a>
+                    </div>
+                </div>
+                <img src="../../images/ga.png" alt="Visual do projeto GA Multipath Routing" class="detail-image" data-aos="fade-left">
+            </section>
+
+            <section class="container detail-grid">
+                <article class="detail-card" data-aos="fade-up">
+                    <h2>O que é</h2>
+                    <p>
+                        O projeto explora como técnicas evolutivas podem selecionar caminhos melhores em redes dinâmicas.
+                        A aplicação combina raciocínio matemático, modelagem de redes e busca heurística para comparar
+                        possibilidades de roteamento.
+                    </p>
+                </article>
+                <article class="detail-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Objetivos</h2>
+                    <ul class="check-list">
+                        <li>Representar soluções de roteamento como indivíduos de uma população.</li>
+                        <li>Aplicar seleção, cruzamento e mutação no processo evolutivo.</li>
+                        <li>Avaliar rotas por métricas como fluxo, custo e latência.</li>
+                        <li>Investigar alternativas para redes ad hoc e cenários distribuídos.</li>
+                    </ul>
+                </article>
+                <article class="detail-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2>Tecnologias</h2>
+                    <div class="project-meta detail-tags">
+                        <span>Algoritmo Genético</span>
+                        <span>Otimização</span>
+                        <span>Redes ad hoc</span>
+                        <span>Modelagem</span>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        if (window.AOS) {
+            AOS.init({ duration: 650, once: true });
+        }
+    </script>
+</body>
+
+</html>
