@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - Axl Andrade</title>
-    <meta name="description" content="Projetos de Axl Andrade em áudio computacional, otimização em redes, jogos de palavras e modelagem computacional.">
+    <meta name="description" content="Projetos de Axl Andrade em IA educacional, áudio computacional, otimização em redes, jogos de palavras e modelagem computacional.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
@@ -44,11 +44,56 @@
                 <h1>Projetos</h1>
                 <p>
                     Trabalhos que conectam a trajetória do Lattes a implementações reais: produção técnica,
-                    apresentações acadêmicas, experimentos de otimização e jogos estáticos.
+                    aplicações com IA, apresentações acadêmicas, experimentos de otimização e jogos estáticos.
                 </p>
             </section>
 
             <section class="container project-showcase" aria-label="Lista de projetos">
+                <article class="project-card feature-card" data-aos="fade-up">
+                    <a href="projects/math-ai-tutor/index.html" class="project-media project-media-ai" aria-label="Ver detalhes do Math AI Tutor">
+                        <div class="ai-tutor-preview" aria-hidden="true">
+                            <div class="ai-window">
+                                <div class="ai-window-bar">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="ai-message ai-message-user">Resolva x² - 5x + 6 = 0</div>
+                                <div class="ai-message ai-message-bot">
+                                    <strong>Passo 1</strong>
+                                    Fatore a expressão em dois termos.
+                                </div>
+                                <div class="equation-row">
+                                    <span>x = 2</span>
+                                    <span>x = 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span>IA</span>
+                            <span>Python</span>
+                            <span>Streamlit</span>
+                        </div>
+                        <h2>Math AI Tutor</h2>
+                        <p>
+                            Tutor educacional de Matemática e Física com modelos da OpenAI, respostas passo a passo,
+                            detecção de assunto e memória curta de conversa.
+                        </p>
+                        <div class="project-actions">
+                            <a href="projects/math-ai-tutor/index.html" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Detalhes
+                            </a>
+                            <a href="https://github.com/axlandrade/math-ai-tutor" class="btn btn-ghost" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i>
+                                Repositório
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="project-card feature-card" data-aos="fade-up">
                     <a href="projects/musica-python/index.html" class="project-media" aria-label="Ver detalhes do MusicaPython">
                         <img src="images/MusicaPython.png" alt="Interface do projeto MusicaPython">

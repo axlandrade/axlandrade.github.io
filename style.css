@@ -553,13 +553,109 @@ button:focus-visible {
 }
 
 .project-media-word,
-.word-detail {
+.word-detail,
+.project-media-ai,
+.ai-detail {
     display: grid;
     place-items: center;
     min-height: 320px;
+}
+
+.project-media-word,
+.word-detail {
     background:
         linear-gradient(135deg, rgba(110, 231, 183, 0.2), rgba(125, 211, 252, 0.12)),
         var(--surface-strong);
+}
+
+.project-media-ai,
+.ai-detail {
+    background:
+        linear-gradient(135deg, rgba(120, 199, 255, 0.22), rgba(255, 107, 87, 0.12)),
+        var(--surface-strong);
+}
+
+.ai-tutor-preview {
+    width: min(86%, 430px);
+}
+
+.ai-window {
+    display: grid;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(13, 16, 22, 0.72);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32);
+}
+
+.ai-window-bar {
+    display: flex;
+    gap: 7px;
+}
+
+.ai-window-bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.24);
+}
+
+.ai-window-bar span:nth-child(1) {
+    background: rgba(255, 107, 87, 0.86);
+}
+
+.ai-window-bar span:nth-child(2) {
+    background: rgba(248, 199, 78, 0.86);
+}
+
+.ai-window-bar span:nth-child(3) {
+    background: rgba(77, 223, 179, 0.86);
+}
+
+.ai-message {
+    max-width: 92%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.ai-message strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--mint);
+}
+
+.ai-message-user {
+    justify-self: end;
+    background: rgba(120, 199, 255, 0.2);
+    border: 1px solid rgba(120, 199, 255, 0.34);
+}
+
+.ai-message-bot {
+    justify-self: start;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.equation-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.equation-row span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border: 1px solid rgba(77, 223, 179, 0.38);
+    border-radius: 8px;
+    background: rgba(77, 223, 179, 0.12);
+    color: #ffffff;
+    font-weight: 800;
 }
 
 .word-preview {

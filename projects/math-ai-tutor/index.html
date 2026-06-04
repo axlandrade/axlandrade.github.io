@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math AI Tutor - Axl Andrade</title>
+    <meta name="description" content="Detalhes do Math AI Tutor, tutor educacional de Matemática e Física com Python, Streamlit e modelos da OpenAI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="manifest" href="../../images/site.webmanifest">
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="../../index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="../../images/logo.png" alt="" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="../../index.html">Início</a></li>
+                        <li><a href="../../projects.html" class="active">Projetos</a></li>
+                        <li><a href="../../about.html">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="container project-detail-hero">
+                <div class="project-detail-copy" data-aos="fade-up">
+                    <a href="../../projects.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar para projetos
+                    </a>
+                    <p class="eyebrow">IA educacional</p>
+                    <h1>Math AI Tutor</h1>
+                    <p>
+                        Tutor inteligente de Matemática e Física com interface web em Streamlit, integração com modelos
+                        da OpenAI e respostas estruturadas para apoiar estudantes do ensino médio ao início da graduação.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://math-tutor-ai.streamlit.app/" class="btn btn-primary" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Acessar projeto
+                        </a>
+                        <a href="https://github.com/axlandrade/math-ai-tutor" class="btn btn-secondary" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-github"></i>
+                            Ver repositório
+                        </a>
+                        <a href="../../projects.html" class="btn btn-ghost">
+                            <i class="fa-solid fa-layer-group"></i>
+                            Outros projetos
+                        </a>
+                    </div>
+                </div>
+                <div class="detail-image ai-detail" data-aos="fade-left" aria-label="Prévia visual do Math AI Tutor">
+                    <div class="ai-tutor-preview" aria-hidden="true">
+                        <div class="ai-window">
+                            <div class="ai-window-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="ai-message ai-message-user">Explique derivadas como professor</div>
+                            <div class="ai-message ai-message-bot">
+                                <strong>Ideia central</strong>
+                                A derivada mede a taxa de variação instantânea.
+                            </div>
+                            <div class="equation-row">
+                                <span>f'(x)</span>
+                                <span>lim h->0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container detail-grid">
+                <article class="detail-card" data-aos="fade-up">
+                    <h2>O que é</h2>
+                    <p>
+                        O Math AI Tutor é uma aplicação educacional pensada para conduzir conversas de estudo com
+                        explicações passo a passo, formatação matemática adequada e adaptação do prompt ao assunto da
+                        pergunta.
+                    </p>
+                </article>
+                <article class="detail-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Destaques</h2>
+                    <ul class="check-list">
+                        <li>Interface web simples e responsiva construída com Streamlit.</li>
+                        <li>Integração com a API da OpenAI para gerar respostas pedagógicas.</li>
+                        <li>Detecção heurística de tema para Matemática, Física ou perguntas gerais.</li>
+                        <li>Memória curta configurável para preservar contexto recente da conversa.</li>
+                        <li>CLI para testes rápidos e uso local no terminal.</li>
+                        <li>Logs em JSONL para auditoria, depuração e evolução do tutor.</li>
+                    </ul>
+                </article>
+                <article class="detail-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2>Tecnologias</h2>
+                    <div class="project-meta detail-tags">
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>OpenAI API</span>
+                        <span>LaTeX</span>
+                        <span>Pytest</span>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        if (window.AOS) {
+            AOS.init({ duration: 650, once: true });
+        }
+    </script>
+</body>
+
+</html>
