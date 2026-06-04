@@ -555,7 +555,9 @@ button:focus-visible {
 .project-media-word,
 .word-detail,
 .project-media-ai,
-.ai-detail {
+.ai-detail,
+.project-media-proof,
+.proof-detail {
     display: grid;
     place-items: center;
     min-height: 320px;
@@ -572,6 +574,13 @@ button:focus-visible {
 .ai-detail {
     background:
         linear-gradient(135deg, rgba(120, 199, 255, 0.22), rgba(255, 107, 87, 0.12)),
+        var(--surface-strong);
+}
+
+.project-media-proof,
+.proof-detail {
+    background:
+        linear-gradient(135deg, rgba(248, 199, 78, 0.2), rgba(120, 199, 255, 0.12)),
         var(--surface-strong);
 }
 
@@ -656,6 +665,79 @@ button:focus-visible {
     background: rgba(77, 223, 179, 0.12);
     color: #ffffff;
     font-weight: 800;
+}
+
+.proof-preview {
+    width: min(88%, 460px);
+}
+
+.proof-sheet {
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(13, 16, 22, 0.74);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32);
+}
+
+.proof-line {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.proof-line span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    background: rgba(248, 199, 78, 0.17);
+    color: var(--amber);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.proof-line code {
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proof-line em {
+    color: var(--muted-strong);
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.proof-line-result {
+    border-color: rgba(77, 223, 179, 0.34);
+    background: rgba(77, 223, 179, 0.12);
+}
+
+.proof-rule {
+    min-height: 48px;
+    padding: 13px 14px;
+    border: 1px solid rgba(120, 199, 255, 0.28);
+    border-radius: 8px;
+    background: rgba(120, 199, 255, 0.1);
+    color: #ffffff;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.35;
 }
 
 .word-preview {
