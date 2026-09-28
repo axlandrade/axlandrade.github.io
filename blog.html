@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Notas Técnicas - Axl Andrade</title>
-    <meta name="description" content="Artigos e notas técnicas de Axl Andrade sobre modelagem matemática, otimização multiobjetivo em multigrafos, séries de Fourier e computação científica.">
+    <meta name="description" content="Artigos e notas técnicas de Axl Andrade sobre matemática aplicada, séries de Fourier, computação simbólica e desenvolvimento de software.">
     <meta name="theme-color" content="#0b0e14">
     <link rel="canonical" href="https://axlandrade.github.io/blog.html">
 
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://axlandrade.github.io/blog.html">
     <meta property="og:title" content="Blog & Notas Técnicas - Axl Andrade">
-    <meta property="og:description" content="Artigos sobre matemática aplicada, redes complexas, otimização e áudio computacional.">
+    <meta property="og:description" content="Artigos sobre matemática aplicada, séries de Fourier, áudio computacional e lógica simbólica.">
     <meta property="og:image" content="https://axlandrade.github.io/images/selfie.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,78 +66,64 @@
         </header>
 
         <main>
-            <section class="container page-hero">
-                <p class="eyebrow">Publicações & Ensaios</p>
-                <h1>Blog & Notas Técnicas</h1>
-                <p>
-                    Artigos com dedução matemática, implementação em código e notas sobre pesquisa acadêmica em multigrafos,
-                    otimização multiobjetivo, acústica e computação científica.
-                </p>
-
-                <!-- Filtros do Blog -->
-                <div class="project-filters-wrap" data-aos="fade-up">
-                    <div class="project-filters" role="tablist" aria-label="Filtro de artigos por categoria">
-                        <button class="blog-filter-btn project-filter-btn active" data-filter="all" role="tab" aria-selected="true">
-                            <i class="fa-solid fa-layer-group"></i> Todos
-                        </button>
-                        <button class="blog-filter-btn project-filter-btn" data-filter="graphs" role="tab" aria-selected="false">
-                            <i class="fa-solid fa-circle-nodes"></i> Redes & Grafos
-                        </button>
-                        <button class="blog-filter-btn project-filter-btn" data-filter="audio" role="tab" aria-selected="false">
-                            <i class="fa-solid fa-wave-square"></i> Áudio & Fourier
-                        </button>
-                    </div>
-                    <span id="blog-filter-count" class="filter-count-badge">2 artigos</span>
-                </div>
-            </section>
-
-            <section class="container blog-showcase" aria-label="Lista de artigos">
-                <!-- Post 1: Multigrafos e Correlation Clustering -->
-                <article class="post-card" data-category="graphs" data-aos="fade-up">
-                    <div class="post-card-meta">
-                        <span class="post-tag">Redes Complexas</span>
-                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
-                        <span><i class="fa-regular fa-clock"></i> 7 min de leitura</span>
-                    </div>
-                    <h2>
-                        <a href="posts/correlation-clustering-multigrafos.html">
-                            Otimização Multiobjetivo e Correlation Clustering em Multigrafos
-                        </a>
-                    </h2>
+            <div class="blog-container">
+                <section class="page-hero" style="padding-bottom: 36px;">
+                    <p class="eyebrow">Artigos & Ensaios</p>
+                    <h1>Blog & Notas Técnicas</h1>
                     <p>
-                        Como a modelagem por multigrafos assinados e a análise da fronteira de Pareto permitem detectar
-                        redes complexas e padrões anômalos em dados abertos governamentais sem perder as múltiplas dimensões relacionais.
+                        Textos com dedução matemática, conceitos teóricos e implementações práticas em código,
+                        cobrindo análise harmônica, computação simbólica e engenharia de software.
                     </p>
-                    <div>
-                        <a href="posts/correlation-clustering-multigrafos.html" class="text-link">
-                            Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+                </section>
 
-                <!-- Post 2: Séries de Fourier ao Áudio WAV -->
-                <article class="post-card" data-category="audio" data-aos="fade-up" data-aos-delay="100">
-                    <div class="post-card-meta">
-                        <span class="post-tag">Áudio & Fourier</span>
-                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
-                        <span><i class="fa-regular fa-clock"></i> 6 min de leitura</span>
-                    </div>
-                    <h2>
-                        <a href="posts/series-de-fourier-ao-audio-wav.html">
-                            Da Teoria das Séries de Fourier à Síntese de Áudio em Python
-                        </a>
-                    </h2>
-                    <p>
-                        A matemática da decomposição harmônica de Fourier e sua tradução em código Python para sintetizar notas
-                        musicais, entender o timbre e gerar arquivos de som WAV do zero.
-                    </p>
-                    <div>
-                        <a href="posts/series-de-fourier-ao-audio-wav.html" class="text-link">
-                            Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </section>
+                <section class="blog-showcase" aria-label="Lista de artigos">
+                    <!-- Artigo 1: Séries de Fourier ao Áudio WAV -->
+                    <article class="post-card" data-aos="fade-up">
+                        <div class="post-card-meta">
+                            <span class="post-tag">Áudio & Fourier</span>
+                            <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 6 min de leitura</span>
+                        </div>
+                        <h2>
+                            <a href="posts/series-de-fourier-ao-audio-wav.html">
+                                Da Teoria das Séries de Fourier à Síntese de Áudio em Python
+                            </a>
+                        </h2>
+                        <p>
+                            A matemática da decomposição harmônica periódica e sua tradução em código Python para sintetizar notas
+                            musicais, compreender o timbre sonoro e gerar arquivos WAV sem bibliotecas externas complexas.
+                        </p>
+                        <div>
+                            <a href="posts/series-de-fourier-ao-audio-wav.html" class="text-link">
+                                Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Artigo 2: GPS Theorem Prover -->
+                    <article class="post-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="post-card-meta">
+                            <span class="post-tag">Lógica Simbólica</span>
+                            <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 min de leitura</span>
+                        </div>
+                        <h2>
+                            <a href="posts/provador-simbolico-gps-python.html">
+                                Construindo um Provador Simbólico de Teoremas em Python
+                            </a>
+                        </h2>
+                        <p>
+                            Como estruturar dedução automática em lógica proposicional inspirada no General Problem Solver (GPS),
+                            priorizando a geração de passos legíveis e auditáveis em vez de simples respostas booleanas.
+                        </p>
+                        <div>
+                            <a href="posts/provador-simbolico-gps-python.html" class="text-link">
+                                Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </section>
+            </div>
         </main>
 
         <!-- Modal de Contato Rápido -->
