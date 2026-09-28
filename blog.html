@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Notas Técnicas - Axl Andrade</title>
+    <meta name="description" content="Artigos e notas técnicas de Axl Andrade sobre modelagem matemática, otimização multiobjetivo em multigrafos, séries de Fourier e computação científica.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://axlandrade.github.io/blog.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axlandrade.github.io/blog.html">
+    <meta property="og:title" content="Blog & Notas Técnicas - Axl Andrade">
+    <meta property="og:description" content="Artigos sobre matemática aplicada, redes complexas, otimização e áudio computacional.">
+    <meta property="og:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="about.html">Sobre</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="container page-hero">
+                <p class="eyebrow">Publicações & Ensaios</p>
+                <h1>Blog & Notas Técnicas</h1>
+                <p>
+                    Artigos com dedução matemática, implementação em código e notas sobre pesquisa acadêmica em multigrafos,
+                    otimização multiobjetivo, acústica e computação científica.
+                </p>
+
+                <!-- Filtros do Blog -->
+                <div class="project-filters-wrap" data-aos="fade-up">
+                    <div class="project-filters" role="tablist" aria-label="Filtro de artigos por categoria">
+                        <button class="blog-filter-btn project-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                            <i class="fa-solid fa-layer-group"></i> Todos
+                        </button>
+                        <button class="blog-filter-btn project-filter-btn" data-filter="graphs" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-circle-nodes"></i> Redes & Grafos
+                        </button>
+                        <button class="blog-filter-btn project-filter-btn" data-filter="audio" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-wave-square"></i> Áudio & Fourier
+                        </button>
+                    </div>
+                    <span id="blog-filter-count" class="filter-count-badge">2 artigos</span>
+                </div>
+            </section>
+
+            <section class="container blog-showcase" aria-label="Lista de artigos">
+                <!-- Post 1: Multigrafos e Correlation Clustering -->
+                <article class="post-card" data-category="graphs" data-aos="fade-up">
+                    <div class="post-card-meta">
+                        <span class="post-tag">Redes Complexas</span>
+                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 7 min de leitura</span>
+                    </div>
+                    <h2>
+                        <a href="posts/correlation-clustering-multigrafos.html">
+                            Otimização Multiobjetivo e Correlation Clustering em Multigrafos
+                        </a>
+                    </h2>
+                    <p>
+                        Como a modelagem por multigrafos assinados e a análise da fronteira de Pareto permitem detectar
+                        redes complexas e padrões anômalos em dados abertos governamentais sem perder as múltiplas dimensões relacionais.
+                    </p>
+                    <div>
+                        <a href="posts/correlation-clustering-multigrafos.html" class="text-link">
+                            Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 2: Séries de Fourier ao Áudio WAV -->
+                <article class="post-card" data-category="audio" data-aos="fade-up" data-aos-delay="100">
+                    <div class="post-card-meta">
+                        <span class="post-tag">Áudio & Fourier</span>
+                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 6 min de leitura</span>
+                    </div>
+                    <h2>
+                        <a href="posts/series-de-fourier-ao-audio-wav.html">
+                            Da Teoria das Séries de Fourier à Síntese de Áudio em Python
+                        </a>
+                    </h2>
+                    <p>
+                        A matemática da decomposição harmônica de Fourier e sua tradução em código Python para sintetizar notas
+                        musicais, entender o timbre e gerar arquivos de som WAV do zero.
+                    </p>
+                    <div>
+                        <a href="posts/series-de-fourier-ao-audio-wav.html" class="text-link">
+                            Ler artigo completo <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- Modal de Contato Rápido -->
+        <div id="contact-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-dialog">
+                <button class="modal-close" aria-label="Fechar janela de contato">&times;</button>
+                <div class="modal-header">
+                    <p class="eyebrow">Vamos conversar?</p>
+                    <h2 id="modal-title">Envie uma mensagem</h2>
+                    <p>Propostas de pesquisa acadêmica, docência, desenvolvimento de projetos ou palestras.</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Seu Nome</label>
+                        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Ex: Maria Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Seu E-mail</label>
+                        <input type="email" id="contact-email" name="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-msg">Mensagem</label>
+                        <textarea id="contact-msg" name="message" class="form-control" placeholder="Escreva sobre sua ideia ou proposta..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                        <button type="button" class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!">
+                            <i class="fa-solid fa-copy"></i>
+                            Copiar E-mail
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Lattes</a>
+                    <a href="https://orcid.org/0009-0009-5147-0065" target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i> ORCID</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        if (window.AOS) {
+            AOS.init({ duration: 600, once: true });
+        }
+    </script>
+</body>
+
+</html>

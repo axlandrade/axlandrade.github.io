@@ -61,6 +61,7 @@
                         <li><a href="index.html" class="active">Início</a></li>
                         <li><a href="projects.html">Projetos</a></li>
                         <li><a href="about.html">Sobre</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </nav>
 
@@ -97,10 +98,14 @@
                                 <i class="fa-solid fa-folder-open"></i>
                                 Ver projetos
                             </a>
-                            <a href="about.html" class="btn btn-secondary">
-                                <i class="fa-solid fa-timeline"></i>
-                                Linha do tempo
+                            <a href="cv.html" class="btn btn-secondary">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                CV (PDF)
                             </a>
+                            <button class="btn btn-ghost" data-open-modal="contact" aria-label="Abrir formulário de contato">
+                                <i class="fa-solid fa-comment-dots"></i>
+                                Contato
+                            </button>
                             <button class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!" aria-label="Copiar e-mail de contato">
                                 <i class="fa-solid fa-envelope"></i>
                                 Copiar e-mail
@@ -216,6 +221,42 @@
                 </div>
             </section>
         </main>
+
+        <!-- Modal de Contato Rápido -->
+        <div id="contact-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-dialog">
+                <button class="modal-close" aria-label="Fechar janela de contato">&times;</button>
+                <div class="modal-header">
+                    <p class="eyebrow">Vamos conversar?</p>
+                    <h2 id="modal-title">Envie uma mensagem</h2>
+                    <p>Propostas de pesquisa acadêmica, docência, desenvolvimento de projetos ou palestras.</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Seu Nome</label>
+                        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Ex: Maria Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Seu E-mail</label>
+                        <input type="email" id="contact-email" name="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-msg">Mensagem</label>
+                        <textarea id="contact-msg" name="message" class="form-control" placeholder="Escreva sobre sua ideia ou proposta..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                        <button type="button" class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!">
+                            <i class="fa-solid fa-copy"></i>
+                            Copiar E-mail
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <footer>
             <div class="container">

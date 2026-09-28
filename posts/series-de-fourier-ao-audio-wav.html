@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da Teoria das Séries de Fourier à Síntese de Áudio em Python - Axl Andrade</title>
+    <meta name="description" content="Como decompor notas musicais e sintetizar arquivos de áudio digital a partir das Séries Trigonométricas de Fourier usando Python.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://axlandrade.github.io/posts/series-de-fourier-ao-audio-wav.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Da Teoria das Séries de Fourier à Síntese de Áudio em Python">
+    <meta property="og:description" content="Artigo técnico demonstrando a matemática das séries de Fourier e sua implementação prática em áudio digital.">
+    <meta property="og:image" content="https://axlandrade.github.io/images/MusicaPython.png">
+
+    <!-- Estilos globais e KaTeX -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="../index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="../images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../projects.html">Projetos</a></li>
+                        <li><a href="../about.html">Sobre</a></li>
+                        <li><a href="../blog.html" class="active">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <article class="article-container">
+                <header class="article-header">
+                    <a href="../blog.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar para artigos
+                    </a>
+                    <p class="eyebrow">Matemática Aplicada & Acústica</p>
+                    <h1>Da Teoria das Séries de Fourier à Síntese de Áudio em Python</h1>
+                    <div class="article-meta-bar">
+                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 6 min de leitura</span>
+                        <span><i class="fa-solid fa-tag"></i> Análise de Fourier • Python • TCC</span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p>
+                        A música acústica e os sinais digitais compartilham um princípio elementar estabelecido por Jean-Baptiste Joseph Fourier no início do século XIX: <strong>qualquer onda periódica pode ser aproximada pela soma ponderada de funções senoidais e cossenoidais</strong>.
+                    </p>
+                    <p>
+                        Essa fundamentação matemática foi o alicerce do meu Trabalho de Conclusão de Curso em Matemática na UFRRJ e deu origem ao projeto <em>MusicaPython</em>.
+                    </p>
+
+                    <h2>1. A Formulação Trigonométrica</h2>
+                    <p>
+                        Seja uma função periódica $f(t)$ com período $T > 0$ e frequência fundamental $f_0 = \frac{1}{T}$. Sob as condições de Dirichlet, sua representação em Série de Fourier é dada por:
+                    </p>
+
+                    $$f(t) = a_0 + \sum_{n=1}^{\infty} \left[ a_n \cos\left(2\pi n f_0 t\right) + b_n \sin\left(2\pi n f_0 t\right) \right]$$
+
+                    <p>
+                        Onde os coeficientes de Fourier medem a intensidade de cada harmônico $n$:
+                    </p>
+
+                    $$a_n = \frac{2}{T} \int_{0}^{T} f(t) \cos(2\pi n f_0 t) \, dt, \quad b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(2\pi n f_0 t) \, dt$$
+
+                    <div class="callout-box">
+                        <strong>O que define o Timbre?</strong> Uma nota Lá (440 Hz) tocada em um piano e a mesma nota emitida por um violino possuem rigorosamente a mesma frequência fundamental ($f_0 = 440\text{ Hz}$). A distinção perceptual que nosso ouvido identifica como <em>timbre</em> reside precisamente nas amplitudes relativas dos harmônicos superiores ($n = 2, 3, 4\dots$).
+                    </div>
+
+                    <h2>2. Amostragem Digital e Síntese Aditiva</h2>
+                    <p>
+                        Para sintetizar áudio digitalmente em um computador, discretizamos a variável contínua de tempo $t$ para instantes amostrados $t_k = \frac{k}{F_s}$, onde $F_s$ é a taxa de amostragem padrão (geralmente $44.100\text{ Hz}$):
+                    </p>
+
+                    $$x[k] = \sum_{n=1}^{N} A_n \sin\left( 2\pi n f_0 \frac{k}{F_s} + \phi_n \right)$$
+
+                    <h2>3. Implementação Prática em Python</h2>
+                    <p>
+                        Com poucas linhas de código utilizando apenas bibliotecas científicas de Python, podemos gerar uma nota musical rica em harmônicos e exportá-la diretamente para um arquivo WAV:
+                    </p>
+
+                    <pre class="code-block"><code>import numpy as np
+import wave
+import struct
+
+def sintetizar_nota(frequencia=440.0, duracao=2.0, taxa_amostragem=44100):
+    t = np.linspace(0, duracao, int(taxa_amostragem * duracao), endpoint=False)
+    
+    # Síntese aditiva: Fundamental + harmônicos com decaimento exponencial
+    sinal = (1.00 * np.sin(2 * np.pi * 1 * frequencia * t) +
+             0.50 * np.sin(2 * np.pi * 2 * frequencia * t) +
+             0.25 * np.sin(2 * np.pi * 3 * frequencia * t) +
+             0.12 * np.sin(2 * np.pi * 4 * frequencia * t))
+    
+    # Envelope ADSR simplificado (fade-out para evitar estalos)
+    envelope = np.linspace(1.0, 0.05, len(sinal))
+    sinal = sinal * envelope
+    
+    # Normalização para áudio de 16 bits (-32767 a +32767)
+    sinal_normalizado = (sinal / np.max(np.abs(sinal)) * 32767).astype(np.int16)
+    
+    with wave.open("nota_la440.wav", "w") as wav_file:
+        wav_file.setnchannels(1)      # Mono
+        wav_file.setsampwidth(2)      # 2 bytes por amostra (16 bits)
+        wav_file.setframerate(taxa_amostragem)
+        wav_file.writeframes(sinal_normalizado.tobytes())
+    
+    print("Áudio sintetizado com sucesso: nota_la440.wav")
+
+if __name__ == "__main__":
+    sintetizar_nota()</code></pre>
+
+                    <h2>4. Conclusão e Próximos Passos</h2>
+                    <p>
+                        A transição da dedução analítica das integrais de Fourier para a sua realização programática em Python ilustra a essência da modelagem matemática e computacional: formular fenômenos físicos com rigor e transformá-los em ferramentas interativas reais.
+                    </p>
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Lattes</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- KaTeX -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });">
+    </script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

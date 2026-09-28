@@ -411,7 +411,121 @@
     }
 
     /* ==========================================================================
-       6. INICIALIZAÇÃO GERAL NO CARREGAMENTO DO DOM
+       6. MODAL DE CONTATO RÁPIDO
+       ========================================================================== */
+    function initContactModal() {
+        const modal = document.getElementById('contact-modal');
+        if (!modal) return;
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            const firstInput = modal.querySelector('input, textarea');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 100);
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Delegação para botões de abertura
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('[data-open-modal="contact"]');
+            if (trigger) {
+                e.preventDefault();
+                openModal();
+            }
+        });
+
+        // Fechar ao clicar no botão de fechar ou no backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.closest('.modal-close')) {
+                closeModal();
+            }
+        });
+
+        // Fechar com tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Manipulação do formulário
+        const form = modal.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nameInput = form.querySelector('[name="name"]');
+                const emailInput = form.querySelector('[name="email"]');
+                const msgInput = form.querySelector('[name="message"]');
+
+                const name = nameInput ? nameInput.value.trim() : '';
+                const email = emailInput ? emailInput.value.trim() : '';
+                const message = msgInput ? msgInput.value.trim() : '';
+
+                if (!name || !message) {
+                    showToast('Por favor, preencha seu nome e mensagem.', 'fa-exclamation-circle');
+                    return;
+                }
+
+                // Prepara e abre o cliente de e-mail padrão
+                const subject = encodeURIComponent(`Contato de ${name} via Portfólio`);
+                const body = encodeURIComponent(`Olá Axl,\n\n${message}\n\nAtenciosamente,\n${name}\nE-mail: ${email}`);
+                const mailtoUrl = `mailto:andradesaxl@gmail.com?subject=${subject}&body=${body}`;
+
+                window.location.href = mailtoUrl;
+                showToast('Mensagem preparada no seu e-mail!', 'fa-paper-plane');
+                form.reset();
+                setTimeout(closeModal, 600);
+            });
+        }
+    }
+
+    /* ==========================================================================
+       7. FILTROS DO BLOG (BLOG.HTML)
+       ========================================================================== */
+    function initBlogFilters() {
+        const filterButtons = document.querySelectorAll('.blog-filter-btn');
+        const postCards = document.querySelectorAll('.post-card[data-category]');
+
+        if (!filterButtons.length || !postCards.length) return;
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-filter');
+
+                filterButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                let matchCount = 0;
+                postCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category') || '';
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = '';
+                        matchCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                const countBadge = document.getElementById('blog-filter-count');
+                if (countBadge) {
+                    countBadge.textContent = `${matchCount} artigo${matchCount !== 1 ? 's' : ''}`;
+                }
+            });
+        });
+    }
+
+    /* ==========================================================================
+       8. INICIALIZAÇÃO GERAL NO CARREGAMENTO DO DOM
        ========================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
         // Vincula botões de alternância de tema
@@ -436,6 +550,12 @@
 
         // Inicializa filtros de projetos
         initProjectFilters();
+
+        // Inicializa filtros do blog
+        initBlogFilters();
+
+        // Inicializa modal de contato
+        initContactModal();
 
         // Inicializa botão voltar ao topo
         initScrollToTop();

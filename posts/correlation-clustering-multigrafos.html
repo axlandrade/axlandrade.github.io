@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otimização Multiobjetivo e Correlation Clustering em Multigrafos - Axl Andrade</title>
+    <meta name="description" content="Artigo sobre Correlation Clustering em Multigrafos Assinados e Otimização Multiobjetivo na detecção de redes complexas e padrões de corrupção.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://axlandrade.github.io/posts/correlation-clustering-multigrafos.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Otimização Multiobjetivo e Correlation Clustering em Multigrafos">
+    <meta property="og:description" content="Como multigrafos e heurísticas multiobjetivo permitem modelar relacionamentos simultâneos na detecção de redes complexas.">
+    <meta property="og:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <!-- Estilos globais e KaTeX para renderização de fórmulas matemáticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="../index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="../images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../projects.html">Projetos</a></li>
+                        <li><a href="../about.html">Sobre</a></li>
+                        <li><a href="../blog.html" class="active">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <article class="article-container">
+                <header class="article-header">
+                    <a href="../blog.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar para artigos
+                    </a>
+                    <p class="eyebrow">Modelagem Matemática & Grafos</p>
+                    <h1>Otimização Multiobjetivo e Correlation Clustering em Multigrafos</h1>
+                    <div class="article-meta-bar">
+                        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 7 min de leitura</span>
+                        <span><i class="fa-solid fa-tag"></i> Redes Complexas • Otimização</span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p>
+                        Na análise de redes reais — sejam redes de transações bancárias, fluxos de contratos governamentais ou redes de cooperação societária —, a representação tradicional por <strong>grafos simples</strong> frequentemente perde informações cruciais. Quando duas entidades mantêm múltiplos tipos de interações simultâneas, a estrutura matemática adequada é o <strong>multigrafo</strong>.
+                    </p>
+
+                    <h2>1. Por que Multigrafos?</h2>
+                    <p>
+                        Um multigrafo $G = (V, E)$ permite que múltiplos pares de arestas paralelas conectem os mesmos vértices $u, v \in V$. Cada aresta $e \in E$ pode representar uma dimensão relacional distinta:
+                    </p>
+                    <ul>
+                        <li><strong>Aresta de Parentesco / Vínculo Societário:</strong> Uma relação estrutural de longo prazo.</li>
+                        <li><strong>Aresta Financeira:</strong> Transações monetárias de valores expressivos.</li>
+                        <li><strong>Aresta de Licitação / Contrato:</strong> Compartilhamento de consórcios em compras públicas.</li>
+                    </ul>
+
+                    <div class="callout-box">
+                        <strong>Definição Formal:</strong> Em um multigrafo assinado, cada aresta $e = (u, v)$ possui tanto um rótulo categórico quanto um sinal $s(e) \in \{+1, -1\}$, indicando afinidade positiva (colaboração, repasse de recursos) ou oposição/discrepância (concorrência, denúncia).
+                    </div>
+
+                    <h2>2. O Problema do Correlation Clustering</h2>
+                    <p>
+                        O problema clássico de <em>Correlation Clustering</em> busca particionar os vértices de um grafo assinado em agrupamentos homogêneos, maximizando acordos ou minimizando discordâncias.
+                    </p>
+                    <p>
+                        Seja $x_e \in \{0, 1\}$ uma variável binária que assume $0$ se os vértices extremos da aresta $e$ forem alocados no mesmo cluster, e $1$ caso fiquem em clusters distintos. A função objetivo clássica ponderada pode ser expressa como:
+                    </p>
+
+                    $$\min_{x} \sum_{e \in E^+} w_e x_e + \sum_{e \in E^-} w_e (1 - x_e)$$
+
+                    <p>
+                        Onde $E^+$ representa o conjunto de arestas com sinal positivo (afinidade) e $E^-$ o conjunto de arestas com sinal negativo (antagonismo), sujeitas à restrição de transitividade métrica (desigualdade triangular para clusters).
+                    </p>
+
+                    <h2>3. A Dimensão Multiobjetivo e a Fronteira de Pareto</h2>
+                    <p>
+                        Em multigrafos, avaliar um único objetivo colapsa as nuances entre diferentes camadas de dados abertos. Por exemplo:
+                    </p>
+                    <ol>
+                        <li><strong>Objetivo $f_1(x)$ (Fluxo Monetário Anômalo):</strong> Concentrar em um mesmo grupo empresas que movimentaram somas atípicas entre si.</li>
+                        <li><strong>Objetivo $f_2(x)$ (Densidade Estrutural Societária):</strong> Minimizar a quebra de sócios comuns entre empresas formalmente distintas.</li>
+                    </ol>
+
+                    <p>
+                        Como esses objetivos frequentemente entram em conflito, não existe uma única partição ideal, mas sim um conjunto de soluções não dominadas — a chamada <strong>Fronteira de Pareto</strong>:
+                    </p>
+
+                    $$\mathcal{P} = \left\{ x \in \Omega \;\middle|\; \nexists y \in \Omega \text{ tal que } f_i(y) \le f_i(x) \, \forall i \text{ e } f(y) \ne f(x) \right\}$$
+
+                    <h2>4. Métodos Exatos versus Heurísticas Evolutivas</h2>
+                    <p>
+                        Por se tratar de um problema NP-difícil, métodos exatos baseados em Programação Linear Inteira Mista (MILP) com cortes de ciclo encontram soluções ótimas garantidas para grafos de pequeno a médio porte.
+                    </p>
+                    <p>
+                        Para redes com dezenas de milhares de contratos e empresas (cenário típico de dados abertos governamentais), empregamos <strong>Algoritmos Genéticos Multiobjetivo (como NSGA-II)</strong> com representação cromossômica baseada em agrupamento de rótulos, garantindo convergência eficiente e diversidade na fronteira de soluções.
+                    </p>
+
+                    <div class="callout-box">
+                        <strong>Conclusão da Pesquisa:</strong> A modelagem multiobjetivo em multigrafos oferece aos órgãos de controle e à sociedade civil uma visão flexível: é possível navegar na fronteira de Pareto para auditar desde agrupamentos hiperdensos até redes dispersas de transferências cruzadas.
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Lattes</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- KaTeX para renderização automática das fórmulas no cliente -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });">
+    </script>
+    <script src="../script.js"></script>
+</body>
+
+</html>
