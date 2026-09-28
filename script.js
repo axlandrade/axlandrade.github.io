@@ -657,16 +657,110 @@
             }
         });
 
-        // Atualiza elementos específicos com atributos data-i18n-en e data-i18n-pt
+        // 1. Atualiza elementos com atributo data-i18n-en e data-i18n-pt
         document.querySelectorAll('[data-i18n-en]').forEach(el => {
-            const target = el.querySelector('.i18n-text') || el;
-            if (!el.hasAttribute('data-i18n-pt')) {
-                el.setAttribute('data-i18n-pt', target.textContent.trim());
+            const target = el.querySelector('.i18n-text');
+            if (!target && el.querySelector('i, svg')) {
+                const icon = el.querySelector('i, svg');
+                if (!el.hasAttribute('data-i18n-pt')) {
+                    const clone = el.cloneNode(true);
+                    clone.querySelectorAll('i, svg').forEach(i => i.remove());
+                    el.setAttribute('data-i18n-pt', clone.textContent.trim());
+                }
+                const label = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
+                el.innerHTML = '';
+                el.appendChild(icon);
+                el.append(' ' + label);
+                return;
             }
-            target.textContent = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
+
+            const textTarget = target || el;
+            if (!el.hasAttribute('data-i18n-pt')) {
+                el.setAttribute('data-i18n-pt', textTarget.textContent.trim());
+            }
+            textTarget.textContent = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
         });
 
-        // Atualiza modal de contato
+        // 2. Dicionário de fallback para botões e cabeçalhos padrão
+        const PHRASES = {
+            en: {
+                'Ver projetos': 'View Projects',
+                'Ver Projetos': 'View Projects',
+                'CV (PDF)': 'Resume (PDF)',
+                'CV Sintético (PDF)': 'Resume (PDF)',
+                'Contato': 'Contact',
+                'Fale Comigo': 'Contact Me',
+                'Copiar e-mail': 'Copy Email',
+                'Copiar E-mail': 'Copy Email',
+                'Acessar Lattes': 'Open Lattes',
+                'Copiar Lattes ID': 'Copy Lattes ID',
+                'Detalhes': 'Details',
+                'Demo Online': 'Live Demo',
+                'Código': 'Code',
+                'Repositório': 'Repository',
+                'Jogar Agora': 'Play Now',
+                'Voltar ao Início': 'Back to Home',
+                'Voltar para Sobre': 'Back to About',
+                'Ir para o Blog': 'Go to Blog',
+                'Explorar a vitrine': 'Explore Projects',
+                'Explorar Todos os Projetos': 'Explore All Projects',
+                'Conhecer Trajetória Completa': 'View Full Background',
+                'Acessar Todo o Blog': 'Access Full Blog',
+                'Ler artigo completo': 'Read full article',
+                'Ver Artigo Didático': 'Read Educational Post',
+                'Imprimir / Salvar em PDF': 'Print / Save as PDF',
+                'Aberto a pesquisa & docência • UFRRJ / CAPES': 'Open to research & teaching • UFRRJ / CAPES',
+                'Todos os direitos reservados.': 'All rights reserved.'
+            },
+            pt: {
+                'View Projects': 'Ver Projetos',
+                'Resume (PDF)': 'CV (PDF)',
+                'Contact': 'Contato',
+                'Contact Me': 'Fale Comigo',
+                'Copy Email': 'Copiar E-mail',
+                'Open Lattes': 'Acessar Lattes',
+                'Copy Lattes ID': 'Copiar Lattes ID',
+                'Details': 'Detalhes',
+                'Live Demo': 'Demo Online',
+                'Code': 'Código',
+                'Repository': 'Repositório',
+                'Play Now': 'Jogar Agora',
+                'Back to Home': 'Voltar ao Início',
+                'Back to About': 'Voltar para Sobre',
+                'Go to Blog': 'Ir para o Blog',
+                'Explore Projects': 'Explorar a vitrine',
+                'Explore All Projects': 'Explorar Todos os Projetos',
+                'View Full Background': 'Conhecer Trajetória Completa',
+                'Access Full Blog': 'Acessar Todo o Blog',
+                'Read full article': 'Ler artigo completo',
+                'Read Educational Post': 'Ver Artigo Didático',
+                'Print / Save as PDF': 'Imprimir / Salvar em PDF',
+                'Open to research & teaching • UFRRJ / CAPES': 'Aberto a pesquisa & docência • UFRRJ / CAPES',
+                'All rights reserved.': 'Todos os direitos reservados.'
+            }
+        };
+
+        const targetPhrases = PHRASES[lang];
+        if (targetPhrases) {
+            document.querySelectorAll('.btn, .text-link, .back-link, .status-badge span:not(.status-dot)').forEach(el => {
+                const textTarget = el.querySelector('.i18n-text');
+                const rawText = (textTarget ? textTarget.textContent : el.textContent).trim();
+                if (targetPhrases[rawText]) {
+                    if (textTarget) {
+                        textTarget.textContent = targetPhrases[rawText];
+                    } else if (el.querySelector('i, svg')) {
+                        const icon = el.querySelector('i, svg');
+                        el.innerHTML = '';
+                        el.appendChild(icon);
+                        el.append(' ' + targetPhrases[rawText]);
+                    } else {
+                        el.textContent = targetPhrases[rawText];
+                    }
+                }
+            });
+        }
+
+        // 3. Atualiza modal de contato
         const modal = document.getElementById('contact-modal');
         if (modal) {
             const eyebrow = modal.querySelector('.eyebrow');
@@ -690,7 +784,7 @@
             }
         }
 
-        // Atualiza página 404 se estiver nela
+        // 4. Atualiza página 404 se estiver nela
         const notfound = document.querySelector('.notfound-hero');
         if (notfound) {
             const eyebrow = notfound.querySelector('.eyebrow');
@@ -701,7 +795,7 @@
             if (desc) desc.textContent = UI_TRANSLATIONS[lang].notfound.desc;
         }
 
-        // Atualiza badges de contagem se existirem
+        // 5. Atualiza badges de contagem se existirem
         const projectCountBadge = document.getElementById('project-filter-count');
         if (projectCountBadge) {
             const num = parseInt(projectCountBadge.textContent, 10) || 0;
@@ -717,7 +811,7 @@
                 : `${num} artigo${num !== 1 ? 's' : ''}`;
         }
 
-        // Atualiza rodapé
+        // 6. Atualiza rodapé
         document.querySelectorAll('footer p').forEach(p => {
             if (p.textContent.includes('Axl Silva de Andrade')) {
                 p.textContent = UI_TRANSLATIONS[lang].common.rights;
