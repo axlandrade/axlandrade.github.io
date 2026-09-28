@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Fora do Domínio | Axl Andrade</title>
+    <meta name="description" content="Erro 404: A página solicitada divergiu para o infinito ou não pertence ao domínio da função.">
+    <meta name="theme-color" content="#0b0e14">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
+                    <img src="images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
+                    <span>Axl Andrade</span>
+                </a>
+                
+                <nav class="nav-menu" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="about.html">Sobre</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <button class="lang-toggle" aria-label="Switch language to English" title="Switch language">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="lang-text">EN</span>
+                    </button>
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="notfound-hero">
+                <div class="notfound-content">
+                    <div class="notfound-badge">404</div>
+                    <p class="eyebrow" style="margin: 0 auto;">Ponto de Descontinuidade</p>
+                    <h1 style="font-size: 2.3rem;">Fora do Domínio da Função</h1>
+                    
+                    <div class="notfound-math">
+                        <code>x &notin; Dom(f) &nbsp;&bull;&nbsp; lim<sub>x &rarr; 404</sub> f(x) = Indeterminado</code>
+                    </div>
+
+                    <p style="color: var(--muted-strong); font-size: 1.1rem; max-width: 540px; margin: 0 auto;">
+                        A coordenada ou página que você tentou acessar divergiu para o infinito, foi descontinuada
+                        ou pertence ao conjunto vazio &empty;.
+                    </p>
+
+                    <div class="hero-actions" style="justify-content: center; margin-top: 14px;">
+                        <a href="index.html" class="btn btn-primary" data-i18n-en="Back to Home">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="i18n-text">Voltar ao Início</span>
+                        </a>
+                        <a href="projects.html" class="btn btn-secondary" data-i18n-en="View Projects">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span class="i18n-text">Ver Projetos</span>
+                        </a>
+                        <a href="blog.html" class="btn btn-ghost" data-i18n-en="Go to Blog">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span class="i18n-text">Ir para o Blog</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Lattes</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

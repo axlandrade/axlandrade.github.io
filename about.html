@@ -64,6 +64,10 @@
                 </nav>
 
                 <div class="nav-actions">
+                    <button class="lang-toggle" aria-label="Switch language to English" title="Switch language">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="lang-text">EN</span>
+                    </button>
                     <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
                         <i class="fa-solid fa-sun"></i>
                     </button>
@@ -76,32 +80,32 @@
 
         <main>
             <section class="container page-hero">
-                <p class="eyebrow">Currículo Lattes atualizado em 2026</p>
-                <h1>Trajetória acadêmica, pesquisa e docência</h1>
-                <p>
+                <p class="eyebrow" data-i18n-en="Curriculum Lattes updated in 2026">Currículo Lattes atualizado em 2026</p>
+                <h1 data-i18n-en="Academic background, research and teaching">Trajetória acadêmica, pesquisa e docência</h1>
+                <p data-i18n-en="M.Sc. Candidate in Mathematical and Computational Modeling at UFRRJ, with degrees in Mathematics and IT Management, continuously active in teaching, university tutoring, computing and optimization.">
                     Mestrando em Modelagem Matemática e Computacional pela UFRRJ, graduado em Matemática e Gestão da
                     Tecnologia da Informação, com atuação contínua em ensino, monitoria, computação e otimização.
                 </p>
                 <div class="hero-actions compact-actions">
-                    <a href="http://lattes.cnpq.br/4821444493668126" class="btn btn-primary" target="_blank" rel="noopener">
+                    <a href="http://lattes.cnpq.br/4821444493668126" class="btn btn-primary" target="_blank" rel="noopener" data-i18n-en="Open Lattes">
                         <i class="fa-solid fa-graduation-cap"></i>
-                        Acessar Lattes
+                        <span class="i18n-text">Acessar Lattes</span>
                     </a>
-                    <a href="cv.html" class="btn btn-secondary">
+                    <a href="cv.html" class="btn btn-secondary" data-i18n-en="Synthetic Resume (PDF)">
                         <i class="fa-solid fa-file-pdf"></i>
-                        CV Sintético (PDF)
+                        <span class="i18n-text">CV Sintético (PDF)</span>
                     </a>
-                    <button class="btn btn-ghost" data-open-modal="contact" aria-label="Enviar mensagem direta">
+                    <button class="btn btn-ghost" data-open-modal="contact" data-i18n-en="Contact" aria-label="Enviar mensagem direta">
                         <i class="fa-solid fa-comment-dots"></i>
-                        Contato
+                        <span class="i18n-text">Contato</span>
                     </button>
-                    <button class="btn btn-ghost" data-copy="4821444493668126" data-copy-label="Lattes ID copiado!" aria-label="Copiar número do Lattes ID">
+                    <button class="btn btn-ghost" data-copy="4821444493668126" data-copy-label="Lattes ID copiado!" data-i18n-en="Copy Lattes ID" aria-label="Copiar número do Lattes ID">
                         <i class="fa-regular fa-copy"></i>
-                        Copiar Lattes ID
+                        <span class="i18n-text">Copiar Lattes ID</span>
                     </button>
-                    <button class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!" aria-label="Copiar e-mail de contato">
+                    <button class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!" data-i18n-en="Copy Email" aria-label="Copiar e-mail de contato">
                         <i class="fa-solid fa-envelope"></i>
-                        Copiar E-mail
+                        <span class="i18n-text">Copiar E-mail</span>
                     </button>
                 </div>
             </section>
@@ -110,9 +114,8 @@
                 <article class="about-story" data-aos="fade-up">
                     <h2>Resumo da Atuação</h2>
                     <p>
-                        Desenvolvo pesquisa em otimização multiobjetivo em multigrafos aplicada à detecção de redes de
-                        corrupção, confrontando abordagens exatas e heurísticas. O projeto relaciona dados abertos governamentais,
-                        correlation clustering, métricas de redes complexas e análise da fronteira de Pareto.
+                        Desenvolvo pesquisa em otimização combinatória, teoria dos multigrafos e modelagem computacional,
+                        investigando métodos exatos e metaheurísticos bioinspirados aplicados a redes complexas e análise da fronteira de Pareto.
                     </p>
                     <p>
                         Minha trajetória alia a fundamentação teórica da matemática à prática computacional e à física aplicada.
@@ -260,6 +263,78 @@
                     <h2>Computação</h2>
                     <p>Python, Java, LaTeX, modelagem computacional, análise de dados e arquitetura de software estático.</p>
                 </article>
+            </section>
+
+            <section class="container section-block" id="materiais-didaticos">
+                <div class="section-heading" data-aos="fade-up">
+                    <p class="eyebrow" data-i18n-en="Teaching & Educational Resources">Ensino & Recursos Didáticos</p>
+                    <h2 data-i18n-en="Educational Materials & Open Resources">Materiais Didáticos & Recursos Abertos</h2>
+                    <p data-i18n-en="Computational guides, teaching notebooks, and theoretical summaries developed for university courses, workshops, and mathematical problem solving.">
+                        Roteiros computacionais, cadernos didáticos e sínteses teóricas produzidos para
+                        disciplinas universitárias, oficinas de formação e resolução de problemas matemáticos.
+                    </p>
+                </div>
+                <div class="teaching-grid">
+                    <article class="teaching-card" data-aos="fade-up">
+                        <div>
+                            <div class="teaching-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <span class="eyebrow" style="margin-bottom: 6px;" data-i18n-en="UFRRJ &bull; Computing Tutoring">UFRRJ &bull; Monitoria de Computação</span>
+                            <h3 data-i18n-en="Introduction to Computing in Python">Introdução à Computação em Python</h3>
+                            <p data-i18n-en="Interactive notebooks with algorithms, control structures, functions, and numerical array manipulation for STEM students.">
+                                Cadernos interativos com roteiros de algoritmos, estruturas de controle, funções e manipulação
+                                de matrizes e dados para estudantes de ciências exatas.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <span><i class="fa-solid fa-code"></i> Python</span>
+                            <span><i class="fa-solid fa-terminal"></i> Algoritmos</span>
+                            <span><i class="fa-solid fa-book-open"></i> Jupyter</span>
+                        </div>
+                    </article>
+
+                    <article class="teaching-card" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <div class="teaching-icon">
+                                <i class="fa-solid fa-wave-square"></i>
+                            </div>
+                            <span class="eyebrow" style="margin-bottom: 6px;" data-i18n-en="Thesis &bull; Mathematics & Acoustics">TCC &bull; Matemática & Acústica</span>
+                            <h3 data-i18n-en="Fourier Series, Harmonics and Sound">Séries de Fourier, Harmônicos e Som</h3>
+                            <p data-i18n-en="Theoretical and computational notes demonstrating WAV audio signal approximation via partial Fourier sums with MusicaPython.">
+                                Material teórico e computacional demonstrando a aproximação de sinais de áudio WAV via somas
+                                parciais de senos e cossenos com o software livre MusicaPython.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <span><i class="fa-solid fa-square-root-variable"></i> Fourier</span>
+                            <span><i class="fa-solid fa-music"></i> Síntese Sonora</span>
+                            <a href="posts/series-de-fourier-ao-audio-wav.html" class="btn btn-ghost" style="padding: 0 12px; min-height: 36px; font-size: 0.85rem; width: 100%; justify-content: center; margin-top: 6px;" data-i18n-en="Read Educational Post">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span class="i18n-text">Ver Artigo Didático</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="teaching-card" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <div class="teaching-icon">
+                                <i class="fa-solid fa-shapes"></i>
+                            </div>
+                            <span class="eyebrow" style="margin-bottom: 6px;" data-i18n-en="IMPA &bull; PAPMEM & PROLÍMPICO">IMPA &bull; PAPMEM & PROLÍMPICO</span>
+                            <h3 data-i18n-en="Structured Problem Solving">Resolução Estruturada de Problemas</h3>
+                            <p data-i18n-en="Selected mathematical proof methods, heuristic strategies for Math Olympiads (OBMEP), and active learning practices.">
+                                Coletânea de métodos de demonstração matemática, estratégias heurísticas para olimpíadas
+                                (OBMEP) e dinâmicas ativas de aprendizagem para a educação básica.
+                            </p>
+                        </div>
+                        <div class="project-meta">
+                            <span><i class="fa-solid fa-brain"></i> Heurística</span>
+                            <span><i class="fa-solid fa-trophy"></i> Olimpíadas</span>
+                            <span><i class="fa-solid fa-chalkboard"></i> Ensino Médio</span>
+                        </div>
+                    </article>
+                </div>
             </section>
 
             <section class="container section-block">

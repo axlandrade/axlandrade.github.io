@@ -348,7 +348,10 @@
 
                 const countBadge = document.getElementById('project-filter-count');
                 if (countBadge) {
-                    countBadge.textContent = `${matchCount} projeto${matchCount !== 1 ? 's' : ''}`;
+                    const isEn = document.documentElement.getAttribute('lang')?.startsWith('en');
+                    countBadge.textContent = isEn
+                        ? `${matchCount} project${matchCount !== 1 ? 's' : ''}`
+                        : `${matchCount} projeto${matchCount !== 1 ? 's' : ''}`;
                 }
             });
         });
@@ -518,20 +521,237 @@
 
                 const countBadge = document.getElementById('blog-filter-count');
                 if (countBadge) {
-                    countBadge.textContent = `${matchCount} artigo${matchCount !== 1 ? 's' : ''}`;
+                    const isEn = document.documentElement.getAttribute('lang')?.startsWith('en');
+                    countBadge.textContent = isEn
+                        ? `${matchCount} article${matchCount !== 1 ? 's' : ''}`
+                        : `${matchCount} artigo${matchCount !== 1 ? 's' : ''}`;
                 }
             });
         });
     }
 
     /* ==========================================================================
-       8. INICIALIZAÇÃO GERAL NO CARREGAMENTO DO DOM
+       8. SISTEMA DE INTERNACIONALIZAÇÃO (BILINGUE PT / EN)
+       ========================================================================== */
+    const LANG_STORAGE_KEY = 'axl_portfolio_lang';
+
+    function getPreferredLanguage() {
+        const storedLang = localStorage.getItem(LANG_STORAGE_KEY);
+        if (storedLang && (storedLang === 'en' || storedLang === 'pt')) {
+            return storedLang;
+        }
+        return 'pt';
+    }
+
+    const UI_TRANSLATIONS = {
+        en: {
+            nav: {
+                'index.html': 'Home',
+                'projects.html': 'Projects',
+                'about.html': 'About',
+                'blog.html': 'Blog'
+            },
+            filters: {
+                'all': 'All',
+                'ai': 'AI & LLMs',
+                'optimization': 'Networks & Optimization',
+                'audio': 'Audio & Fourier',
+                'logic': 'Symbolic Logic',
+                'games': 'Games & Web',
+                'research': 'Scientific Research',
+                'dev': 'Development',
+                'math': 'Applied Math'
+            },
+            common: {
+                rights: '© 2026 Axl Silva de Andrade. All rights reserved.'
+            },
+            modal: {
+                eyebrow: "Let's talk?",
+                title: 'Send a message',
+                desc: 'Academic research proposals, teaching, project collaborations or talks.',
+                nameLabel: 'Your Name',
+                emailLabel: 'Your Email',
+                msgLabel: 'Message',
+                sendBtn: 'Send Message'
+            },
+            notfound: {
+                eyebrow: 'Point of Discontinuity',
+                title: 'Outside Function Domain',
+                desc: 'The coordinate or page you tried to access diverged to infinity, was discontinued, or belongs to the empty set ∅.',
+                homeBtn: 'Back to Home',
+                projectsBtn: 'View Projects',
+                blogBtn: 'Go to Blog'
+            }
+        },
+        pt: {
+            nav: {
+                'index.html': 'Início',
+                'projects.html': 'Projetos',
+                'about.html': 'Sobre',
+                'blog.html': 'Blog'
+            },
+            filters: {
+                'all': 'Todos',
+                'ai': 'IA & LLMs',
+                'optimization': 'Redes & Otimização',
+                'audio': 'Áudio & Fourier',
+                'logic': 'Lógica Simbólica',
+                'games': 'Jogos & Web',
+                'research': 'Pesquisa Científica',
+                'dev': 'Desenvolvimento',
+                'math': 'Matemática Aplicada'
+            },
+            common: {
+                rights: '© 2026 Axl Silva de Andrade. Todos os direitos reservados.'
+            },
+            modal: {
+                eyebrow: 'Vamos conversar?',
+                title: 'Envie uma mensagem',
+                desc: 'Propostas de pesquisa acadêmica, docência, desenvolvimento de projetos ou palestras.',
+                nameLabel: 'Seu Nome',
+                emailLabel: 'Seu E-mail',
+                msgLabel: 'Mensagem',
+                sendBtn: 'Enviar Mensagem'
+            },
+            notfound: {
+                eyebrow: 'Ponto de Descontinuidade',
+                title: 'Fora do Domínio da Função',
+                desc: 'A coordenada ou página que você tentou acessar divergiu para o infinito, foi descontinuada ou pertence ao conjunto vazio ∅.',
+                homeBtn: 'Voltar ao Início',
+                projectsBtn: 'Ver Projetos',
+                blogBtn: 'Ir para o Blog'
+            }
+        }
+    };
+
+    function applyLanguage(lang) {
+        document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-br');
+
+        // Atualiza textos do menu de navegação
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && UI_TRANSLATIONS[lang].nav[href]) {
+                link.textContent = UI_TRANSLATIONS[lang].nav[href];
+            }
+        });
+
+        // Atualiza botões do toggle de idioma
+        document.querySelectorAll('.lang-toggle').forEach(btn => {
+            const span = btn.querySelector('.lang-text');
+            if (span) {
+                span.textContent = lang === 'en' ? 'PT' : 'EN';
+            }
+            btn.setAttribute('aria-label', lang === 'en' ? 'Mudar idioma para Português' : 'Switch language to English');
+            btn.setAttribute('title', lang === 'en' ? 'Alternar para Português' : 'Switch to English');
+        });
+
+        // Atualiza filtros de projetos e blog preservando ícones
+        document.querySelectorAll('.project-filter-btn, .blog-filter-btn').forEach(btn => {
+            const filter = btn.getAttribute('data-filter');
+            if (filter && UI_TRANSLATIONS[lang].filters[filter]) {
+                const icon = btn.querySelector('i');
+                const label = UI_TRANSLATIONS[lang].filters[filter];
+                btn.innerHTML = '';
+                if (icon) btn.appendChild(icon);
+                btn.append(' ' + label);
+            }
+        });
+
+        // Atualiza elementos específicos com atributos data-i18n-en e data-i18n-pt
+        document.querySelectorAll('[data-i18n-en]').forEach(el => {
+            const target = el.querySelector('.i18n-text') || el;
+            if (!el.hasAttribute('data-i18n-pt')) {
+                el.setAttribute('data-i18n-pt', target.textContent.trim());
+            }
+            target.textContent = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
+        });
+
+        // Atualiza modal de contato
+        const modal = document.getElementById('contact-modal');
+        if (modal) {
+            const eyebrow = modal.querySelector('.eyebrow');
+            if (eyebrow) eyebrow.textContent = UI_TRANSLATIONS[lang].modal.eyebrow;
+            const title = modal.querySelector('#modal-title');
+            if (title) title.textContent = UI_TRANSLATIONS[lang].modal.title;
+            const desc = modal.querySelector('.modal-header p:last-child');
+            if (desc) desc.textContent = UI_TRANSLATIONS[lang].modal.desc;
+            const nameLabel = modal.querySelector('label[for="contact-name"]');
+            if (nameLabel) nameLabel.textContent = UI_TRANSLATIONS[lang].modal.nameLabel;
+            const emailLabel = modal.querySelector('label[for="contact-email"]');
+            if (emailLabel) emailLabel.textContent = UI_TRANSLATIONS[lang].modal.emailLabel;
+            const msgLabel = modal.querySelector('label[for="contact-msg"]');
+            if (msgLabel) msgLabel.textContent = UI_TRANSLATIONS[lang].modal.msgLabel;
+            const submitBtn = modal.querySelector('.form-actions button[type="submit"]');
+            if (submitBtn) {
+                const icon = submitBtn.querySelector('i');
+                submitBtn.innerHTML = '';
+                if (icon) submitBtn.appendChild(icon);
+                submitBtn.append(' ' + UI_TRANSLATIONS[lang].modal.sendBtn);
+            }
+        }
+
+        // Atualiza página 404 se estiver nela
+        const notfound = document.querySelector('.notfound-hero');
+        if (notfound) {
+            const eyebrow = notfound.querySelector('.eyebrow');
+            const h1 = notfound.querySelector('h1');
+            const desc = notfound.querySelector('p:not(.eyebrow)');
+            if (eyebrow) eyebrow.textContent = UI_TRANSLATIONS[lang].notfound.eyebrow;
+            if (h1) h1.textContent = UI_TRANSLATIONS[lang].notfound.title;
+            if (desc) desc.textContent = UI_TRANSLATIONS[lang].notfound.desc;
+        }
+
+        // Atualiza badges de contagem se existirem
+        const projectCountBadge = document.getElementById('project-filter-count');
+        if (projectCountBadge) {
+            const num = parseInt(projectCountBadge.textContent, 10) || 0;
+            projectCountBadge.textContent = lang === 'en'
+                ? `${num} project${num !== 1 ? 's' : ''}`
+                : `${num} projeto${num !== 1 ? 's' : ''}`;
+        }
+        const blogCountBadge = document.getElementById('blog-filter-count');
+        if (blogCountBadge) {
+            const num = parseInt(blogCountBadge.textContent, 10) || 0;
+            blogCountBadge.textContent = lang === 'en'
+                ? `${num} article${num !== 1 ? 's' : ''}`
+                : `${num} artigo${num !== 1 ? 's' : ''}`;
+        }
+
+        // Atualiza rodapé
+        document.querySelectorAll('footer p').forEach(p => {
+            if (p.textContent.includes('Axl Silva de Andrade')) {
+                p.textContent = UI_TRANSLATIONS[lang].common.rights;
+            }
+        });
+    }
+
+    function toggleLanguage() {
+        const currentLang = document.documentElement.getAttribute('lang')?.startsWith('en') ? 'en' : 'pt';
+        const newLang = currentLang === 'en' ? 'pt' : 'en';
+        localStorage.setItem(LANG_STORAGE_KEY, newLang);
+        applyLanguage(newLang);
+        showToast(newLang === 'en' ? 'Language switched to English' : 'Idioma alterado para Português', 'fa-globe');
+    }
+
+    /* ==========================================================================
+       9. INICIALIZAÇÃO GERAL NO CARREGAMENTO DO DOM
        ========================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
         // Vincula botões de alternância de tema
         document.querySelectorAll('.theme-toggle').forEach(btn => {
             btn.addEventListener('click', toggleTheme);
         });
+
+        // Vincula botões de alternância de idioma
+        document.querySelectorAll('.lang-toggle').forEach(btn => {
+            btn.addEventListener('click', toggleLanguage);
+        });
+
+        // Aplica o idioma salvo ou padrão
+        const initialLang = getPreferredLanguage();
+        if (initialLang === 'en') {
+            applyLanguage('en');
+        }
 
         // Delegação de cliques para botões com atributo data-copy
         document.addEventListener('click', (e) => {

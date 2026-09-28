@@ -247,6 +247,28 @@ button:focus-visible {
     transform: rotate(20deg) scale(1.05);
 }
 
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--heading);
+    font-weight: 800;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
 .hamburger-menu {
     display: none;
     width: 44px;
@@ -1707,6 +1729,104 @@ textarea.form-control {
 }
 
 /* ==========================================================================
+   MATERIAIS DIDÁTICOS & ENSINO (TEACHING HUB)
+   ========================================================================== */
+.teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.teaching-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 28px;
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+}
+
+.teaching-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 107, 87, 0.45);
+    box-shadow: var(--shadow), 0 0 20px var(--accent-glow);
+}
+
+.teaching-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mint);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.teaching-card h3 {
+    font-size: 1.3rem;
+    line-height: 1.28;
+    margin-bottom: 8px;
+}
+
+.teaching-card p {
+    color: var(--muted-strong);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   PÁGINA 404 (NOT FOUND HERO)
+   ========================================================================== */
+.notfound-hero {
+    min-height: calc(75vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.notfound-content {
+    max-width: 680px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+}
+
+.notfound-badge {
+    font-size: 6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-shadow: 0 0 35px var(--accent-glow);
+}
+
+.notfound-math {
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--heading);
+    margin: 8px 0;
+}
+
+/* ==========================================================================
    ESTILOS DE IMPRESSÃO (CURRÍCULO EM PDF / IMPRESSÃO LIMPA)
    ========================================================================== */
 @media print {
@@ -1800,7 +1920,8 @@ textarea.form-control {
     .detail-grid,
     .experience-grid,
     .credential-grid,
-    .research-grid {
+    .research-grid,
+    .teaching-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1942,7 +2063,8 @@ textarea.form-control {
     .experience-grid,
     .credential-grid,
     .research-grid,
-    .link-grid {
+    .link-grid,
+    .teaching-grid {
         grid-template-columns: 1fr;
     }
 
