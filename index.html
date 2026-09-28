@@ -4,18 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axl Andrade - Portfólio</title>
-    <meta name="description" content="Portfólio de Axl Silva de Andrade, mestrando em Modelagem Matemática e Computacional pela UFRRJ, com pesquisa em otimização multiobjetivo, multigrafos e dados abertos.">
+    <title>Axl Andrade - Portfólio & Pesquisa em Computação Científica</title>
+    <meta name="description" content="Portfólio de Axl Silva de Andrade, mestrando em Modelagem Matemática e Computacional pela UFRRJ, com pesquisa em otimização multiobjetivo, multigrafos, IA e dados abertos.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://axlandrade.github.io/">
+
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axlandrade.github.io/">
+    <meta property="og:title" content="Axl Andrade - Portfólio & Pesquisa">
+    <meta property="og:description" content="Mestrando em Modelagem Matemática e Computacional pela UFRRJ. Otimização multiobjetivo, multigrafos e computação científica.">
+    <meta property="og:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axlandrade.github.io/">
+    <meta name="twitter:title" content="Axl Andrade - Portfólio & Pesquisa">
+    <meta name="twitter:description" content="Mestrando em Modelagem Matemática e Computacional pela UFRRJ. Otimização multiobjetivo, multigrafos e computação científica.">
+    <meta name="twitter:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <!-- Pré-carregamento de fontes e estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="images/background.png">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Previne flash do tema no carregamento -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -23,12 +52,10 @@
         <header class="site-header">
             <div class="container nav-shell">
                 <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
-                    <img src="images/logo.png" alt="" class="logo-image">
+                    <img src="images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
                     <span>Axl Andrade</span>
                 </a>
-                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                
                 <nav class="nav-menu" aria-label="Navegação principal">
                     <ul>
                         <li><a href="index.html" class="active">Início</a></li>
@@ -36,18 +63,34 @@
                         <li><a href="about.html">Sobre</a></li>
                     </ul>
                 </nav>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </header>
 
         <main>
             <section class="hero-section">
+                <!-- Canvas com simulação interativa de multigrafos -->
+                <canvas id="hero-multigraph-canvas" aria-hidden="true"></canvas>
+
                 <div class="container hero-content">
                     <div class="hero-copy" data-aos="fade-up">
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                            <span>Aberto a pesquisa & docência • UFRRJ / CAPES</span>
+                        </div>
                         <p class="eyebrow">Otimização, multigrafos e computação científica</p>
                         <h1>Axl Silva de Andrade</h1>
                         <p class="hero-lead">
-                            Mestrando em Modelagem Matemática e Computacional pela UFRRJ, com pesquisa em otimização
-                            multiobjetivo aplicada à detecção de redes de corrupção em multigrafos.
+                            Mestrando em Modelagem Matemática e Computacional pela UFRRJ, pesquisando otimização
+                            multiobjetivo e detecção de redes complexas em multigrafos.
                         </p>
                         <div class="hero-actions" aria-label="Ações principais">
                             <a href="projects.html" class="btn btn-primary">
@@ -58,10 +101,10 @@
                                 <i class="fa-solid fa-timeline"></i>
                                 Linha do tempo
                             </a>
-                            <a href="http://lattes.cnpq.br/4821444493668126" class="btn btn-ghost" target="_blank" rel="noopener">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                Lattes
-                            </a>
+                            <button class="btn btn-ghost" data-copy="andradesaxl@gmail.com" data-copy-label="E-mail copiado!" aria-label="Copiar e-mail de contato">
+                                <i class="fa-solid fa-envelope"></i>
+                                Copiar e-mail
+                            </button>
                         </div>
                     </div>
 
@@ -85,17 +128,17 @@
                 <article class="credential-card" data-aos="fade-up">
                     <span>2025 - Atual</span>
                     <strong>Mestrado</strong>
-                    <p>Modelagem Matemática e Computacional, UFRRJ.</p>
+                    <p>Modelagem Matemática e Computacional, UFRRJ (Bolsista CAPES).</p>
                 </article>
                 <article class="credential-card" data-aos="fade-up" data-aos-delay="100">
                     <span>2020 - 2025</span>
                     <strong>Matemática</strong>
-                    <p>Licenciatura pela UFRRJ, com TCC sobre séries de Fourier e notas musicais.</p>
+                    <p>Licenciatura pela UFRRJ, com TCC em séries de Fourier e notas musicais.</p>
                 </article>
                 <article class="credential-card" data-aos="fade-up" data-aos-delay="200">
                     <span>2021 - 2023</span>
                     <strong>Gestão de TI</strong>
-                    <p>Graduação pela Universidade Estácio de Sá.</p>
+                    <p>Graduação tecnológica pela Universidade Estácio de Sá.</p>
                 </article>
                 <article class="credential-card" data-aos="fade-up" data-aos-delay="300">
                     <span>2024 - Atual</span>
@@ -126,17 +169,17 @@
                     <article class="research-card" data-aos="fade-up" data-aos-delay="100">
                         <h3>Perfil técnico</h3>
                         <p>
-                            Experiência com Python, Java, LaTeX, modelagem computacional, redes/grafos e algoritmos
-                            genéticos, além de atuação docente e monitorias em matemática e computação.
+                            Experiência sólida com Python, Java, LaTeX, modelagem computacional, grafos/redes complexas e algoritmos
+                            genéticos, aliada a atuação docente e monitorias acadêmicas.
                         </p>
                         <div class="link-grid">
+                            <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Currículo Lattes
+                            </a>
                             <a href="https://orcid.org/0009-0009-5147-0065" target="_blank" rel="noopener">
                                 <i class="fa-brands fa-orcid"></i>
                                 ORCID
-                            </a>
-                            <a href="about.html">
-                                <i class="fa-solid fa-user-graduate"></i>
-                                Formação completa
                             </a>
                         </div>
                     </article>
@@ -162,8 +205,10 @@
 
             <section class="highlight-band">
                 <div class="container highlight-content" data-aos="fade-up">
-                    <p class="eyebrow">Projetos em destaque</p>
-                    <h2>Experimentos aplicados com IA educacional, áudio, redes, otimização e jogos de palavras</h2>
+                    <div>
+                        <p class="eyebrow">Projetos em destaque</p>
+                        <h2>Experimentos com IA educacional, áudio, redes, otimização e provas formais</h2>
+                    </div>
                     <a href="projects.html" class="text-link">
                         Explorar a vitrine
                         <i class="fa-solid fa-arrow-right"></i>
@@ -174,24 +219,28 @@
 
         <footer>
             <div class="container">
-                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener" aria-label="Lattes">
+                        <i class="fa-solid fa-graduation-cap"></i> Lattes
+                    </a>
+                    <a href="https://orcid.org/0009-0009-5147-0065" target="_blank" rel="noopener" aria-label="ORCID">
+                        <i class="fa-brands fa-orcid"></i> ORCID
+                    </a>
+                </div>
             </div>
         </footer>
     </div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isOpen);
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         if (window.AOS) {
-            AOS.init({ duration: 650, once: true });
+            AOS.init({ duration: 600, once: true });
         }
     </script>
 </body>

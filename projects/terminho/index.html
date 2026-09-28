@@ -15,6 +15,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
     <link rel="manifest" href="../../images/site.webmanifest">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -22,12 +29,9 @@
         <header class="site-header">
             <div class="container nav-shell">
                 <a href="../../index.html" class="logo" aria-label="Página inicial de Axl Andrade">
-                    <img src="../../images/logo.png" alt="" class="logo-image">
+                    <img src="../../images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
                     <span>Axl Andrade</span>
                 </a>
-                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
                 <nav class="nav-menu" aria-label="Navegação principal">
                     <ul>
                         <li><a href="../../index.html">Início</a></li>
@@ -35,6 +39,14 @@
                         <li><a href="../../about.html">Sobre</a></li>
                     </ul>
                 </nav>
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -110,24 +122,27 @@
 
         <footer>
             <div class="container">
-                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener" aria-label="Lattes">
+                        <i class="fa-solid fa-graduation-cap"></i> Lattes
+                    </a>
+                    <a href="https://orcid.org/0009-0009-5147-0065" target="_blank" rel="noopener" aria-label="ORCID">
+                        <i class="fa-brands fa-orcid"></i> ORCID
+                    </a>
+                </div>
             </div>
         </footer>
     </div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isOpen);
-        });
-    </script>
+    <script src="../../script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         if (window.AOS) {
-            AOS.init({ duration: 650, once: true });
+            AOS.init({ duration: 600, once: true });
         }
     </script>
 </body>

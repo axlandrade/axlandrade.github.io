@@ -4,17 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos - Axl Andrade</title>
-    <meta name="description" content="Projetos de Axl Andrade em IA educacional, provas simbólicas, áudio computacional, otimização em redes, jogos de palavras e modelagem computacional.">
+    <title>Projetos - Axl Andrade | Pesquisa, IA e Desenvolvimento</title>
+    <meta name="description" content="Projetos de Axl Andrade em IA educacional, provas simbólicas, áudio computacional, otimização em redes e modelagem computacional.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://axlandrade.github.io/projects.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axlandrade.github.io/projects.html">
+    <meta property="og:title" content="Projetos - Axl Andrade">
+    <meta property="og:description" content="Projetos em IA educacional, provas simbólicas, áudio computacional, otimização em redes e jogos estáticos.">
+    <meta property="og:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projetos - Axl Andrade">
+    <meta name="twitter:description" content="Projetos de Axl Andrade em IA, Otimização, Áudio e Lógica Simbólica.">
+    <meta name="twitter:image" content="https://axlandrade.github.io/images/selfie.jpg">
+
+    <!-- Pré-carregamento e estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Previne flash do tema -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('axl_portfolio_theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -22,12 +50,10 @@
         <header class="site-header">
             <div class="container nav-shell">
                 <a href="index.html" class="logo" aria-label="Página inicial de Axl Andrade">
-                    <img src="images/logo.png" alt="" class="logo-image">
+                    <img src="images/logo.png" alt="Logo de Axl Andrade" class="logo-image">
                     <span>Axl Andrade</span>
                 </a>
-                <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                
                 <nav class="nav-menu" aria-label="Navegação principal">
                     <ul>
                         <li><a href="index.html">Início</a></li>
@@ -35,22 +61,58 @@
                         <li><a href="about.html">Sobre</a></li>
                     </ul>
                 </nav>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="hamburger-menu" aria-label="Abrir navegação" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </header>
 
         <main>
             <section class="container page-hero">
-                <p class="eyebrow">Vitrine técnica</p>
+                <p class="eyebrow">Vitrine técnica e científica</p>
                 <h1>Projetos</h1>
                 <p>
-                    Trabalhos que conectam a trajetória do Lattes a implementações reais: produção técnica,
-                    aplicações com IA, provas simbólicas, apresentações acadêmicas, experimentos de otimização e jogos estáticos.
+                    Aplicações que conectam a trajetória acadêmica a implementações reais: IA generativa educacional,
+                    provadores formais, síntese computacional de áudio, heurísticas evolutivas em redes e jogos estáticos.
                 </p>
+
+                <!-- Barra de filtros dinâmicos de categoria -->
+                <div class="project-filters-wrap" data-aos="fade-up">
+                    <div class="project-filters" role="tablist" aria-label="Filtro de projetos por área">
+                        <button class="project-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                            <i class="fa-solid fa-border-all"></i> Todos
+                        </button>
+                        <button class="project-filter-btn" data-filter="ai" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-brain"></i> IA & LLMs
+                        </button>
+                        <button class="project-filter-btn" data-filter="optimization" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-circle-nodes"></i> Redes & Otimização
+                        </button>
+                        <button class="project-filter-btn" data-filter="audio" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-wave-square"></i> Áudio & Fourier
+                        </button>
+                        <button class="project-filter-btn" data-filter="logic" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-superscript"></i> Lógica Simbólica
+                        </button>
+                        <button class="project-filter-btn" data-filter="games" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-gamepad"></i> Jogos & Web
+                        </button>
+                    </div>
+                    <span id="project-filter-count" class="filter-count-badge">5 projetos</span>
+                </div>
             </section>
 
             <section class="container project-showcase" aria-label="Lista de projetos">
-                <article class="project-card feature-card" data-aos="fade-up">
+                <!-- 1. Math AI Tutor -->
+                <article class="project-card feature-card" data-category="ai" data-aos="fade-up">
                     <a href="projects/math-ai-tutor/index.html" class="project-media project-media-ai" aria-label="Ver detalhes do Math AI Tutor">
+                        <span class="project-badge-tag">Demo Online</span>
                         <div class="ai-tutor-preview" aria-hidden="true">
                             <div class="ai-window">
                                 <div class="ai-window-bar">
@@ -61,7 +123,7 @@
                                 <div class="ai-message ai-message-user">Resolva x² - 5x + 6 = 0</div>
                                 <div class="ai-message ai-message-bot">
                                     <strong>Passo 1</strong>
-                                    Fatore a expressão em dois termos.
+                                    Fatore a expressão em dois binômios.
                                 </div>
                                 <div class="equation-row">
                                     <span>x = 2</span>
@@ -72,70 +134,82 @@
                     </a>
                     <div class="project-content">
                         <div class="project-meta">
-                            <span>IA</span>
-                            <span>Python</span>
+                            <span><i class="fa-solid fa-brain"></i> IA Educacional</span>
+                            <span><i class="fa-brands fa-python"></i> Python</span>
                             <span>Streamlit</span>
                         </div>
                         <h2>Math AI Tutor</h2>
                         <p>
-                            Tutor educacional de Matemática e Física com modelos da OpenAI, respostas passo a passo,
-                            detecção de assunto e memória curta de conversa.
+                            Tutor educacional de Matemática e Física integrando modelos OpenAI, raciocínio passo a passo,
+                            detecção contextual de assuntos e memória curta de sessão.
                         </p>
                         <div class="project-actions">
                             <a href="projects/math-ai-tutor/index.html" class="btn btn-primary">
                                 <i class="fa-solid fa-circle-info"></i>
                                 Detalhes
                             </a>
+                            <a href="https://math-tutor-ai.streamlit.app/" class="btn btn-secondary" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                Demo Online
+                            </a>
                             <a href="https://github.com/axlandrade/math-ai-tutor" class="btn btn-ghost" target="_blank" rel="noopener">
                                 <i class="fa-brands fa-github"></i>
-                                Repositório
+                                Código
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card feature-card" data-aos="fade-up">
+                <!-- 2. MusicaPython -->
+                <article class="project-card feature-card" data-category="audio" data-aos="fade-up">
                     <a href="projects/musica-python/index.html" class="project-media" aria-label="Ver detalhes do MusicaPython">
+                        <span class="project-badge-tag">TCC & Lattes</span>
                         <img src="images/MusicaPython.png" alt="Interface do projeto MusicaPython">
                     </a>
                     <div class="project-content">
                         <div class="project-meta">
-                            <span>Áudio</span>
-                            <span>Python</span>
+                            <span><i class="fa-solid fa-wave-square"></i> Áudio & Fourier</span>
+                            <span><i class="fa-brands fa-python"></i> Python</span>
                             <span>Flask</span>
                         </div>
                         <h2>MusicaPython</h2>
                         <p>
-                            Produção técnica registrada no Lattes: um sintetizador que aproxima séries de Fourier,
-                            notas musicais e programação em Python.
+                            Produção técnica registrada no Currículo Lattes: sintetizador de áudio que correlaciona séries de
+                            Fourier, geração de timbres harmônicos e notas musicais via Python.
                         </p>
                         <div class="project-actions">
                             <a href="projects/musica-python/index.html" class="btn btn-primary">
                                 <i class="fa-solid fa-circle-info"></i>
                                 Detalhes
                             </a>
+                            <a href="https://musicapython.onrender.com/" class="btn btn-secondary" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                Demo Online
+                            </a>
                             <a href="https://github.com/axlandrade/MusicaPython" class="btn btn-ghost" target="_blank" rel="noopener">
                                 <i class="fa-brands fa-github"></i>
-                                Repositório
+                                Código
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card feature-card" data-aos="fade-up" data-aos-delay="100">
+                <!-- 3. GA Multipath Routing -->
+                <article class="project-card feature-card" data-category="optimization" data-aos="fade-up" data-aos-delay="100">
                     <a href="projects/ga-multipath-routing/index.html" class="project-media" aria-label="Ver detalhes do GA Multipath Routing">
+                        <span class="project-badge-tag">Pesquisa 2025</span>
                         <img src="images/ga.png" alt="Visual do projeto GA Multipath Routing">
                     </a>
                     <div class="project-content">
                         <div class="project-meta">
+                            <span><i class="fa-solid fa-dna"></i> Algoritmo Genético</span>
+                            <span><i class="fa-solid fa-circle-nodes"></i> Redes Ad Hoc</span>
                             <span>Otimização</span>
-                            <span>Algoritmo Genético</span>
-                            <span>Redes</span>
                         </div>
                         <h2>GA Multipath Routing</h2>
                         <p>
-                            Projeto associado à apresentação sobre otimização do fluxo de dados em redes ad hoc com
-                            múltiplos caminhos, usando heurísticas evolutivas.
+                            Apresentação acadêmica e simulação focada na otimização do fluxo de dados em redes ad hoc com
+                            múltiplos caminhos simultâneos, comparando convergência e balanceamento de carga.
                         </p>
                         <div class="project-actions">
                             <a href="projects/ga-multipath-routing/index.html" class="btn btn-primary">
@@ -150,8 +224,10 @@
                     </div>
                 </article>
 
-                <article class="project-card feature-card" data-aos="fade-up" data-aos-delay="200">
+                <!-- 4. Terminhooo -->
+                <article class="project-card feature-card" data-category="games" data-aos="fade-up" data-aos-delay="200">
                     <a href="projects/terminho/index.html" class="project-media project-media-word" aria-label="Ver detalhes do Terminhooo">
+                        <span class="project-badge-tag">Demo Online</span>
                         <div class="word-preview" aria-hidden="true">
                             <span>T</span>
                             <span>E</span>
@@ -162,30 +238,36 @@
                     </a>
                     <div class="project-content">
                         <div class="project-meta">
-                            <span>Jogo</span>
+                            <span><i class="fa-solid fa-gamepad"></i> Jogo Web</span>
                             <span>JavaScript</span>
                             <span>Docker</span>
                         </div>
                         <h2>Terminhooo</h2>
                         <p>
-                            Coleção de minijogos de palavras em português para jogar a dois, incluindo Termooo,
-                            Contexto e Conexo, em uma aplicação estática sem backend.
+                            Coleção estática de minijogos de palavras em português (estilo Termooo, Contexto e Conexo)
+                            otimizada para jogar cooperativamente a dois, sem necessidade de infraestrutura de backend.
                         </p>
                         <div class="project-actions">
                             <a href="projects/terminho/index.html" class="btn btn-primary">
                                 <i class="fa-solid fa-circle-info"></i>
                                 Detalhes
                             </a>
+                            <a href="https://axlandrade.github.io/terminho/" class="btn btn-secondary" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-play"></i>
+                                Jogar Agora
+                            </a>
                             <a href="https://github.com/axlandrade/terminho" class="btn btn-ghost" target="_blank" rel="noopener">
                                 <i class="fa-brands fa-github"></i>
-                                Repositório
+                                Código
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card feature-card" data-aos="fade-up" data-aos-delay="300">
+                <!-- 5. GPS Theorem Prover -->
+                <article class="project-card feature-card" data-category="logic" data-aos="fade-up" data-aos-delay="300">
                     <a href="projects/gps-theorem-prover/index.html" class="project-media project-media-proof" aria-label="Ver detalhes do GPS Theorem Prover">
+                        <span class="project-badge-tag">Computação Simbólica</span>
                         <div class="proof-preview" aria-hidden="true">
                             <div class="proof-sheet">
                                 <div class="proof-line">
@@ -209,14 +291,14 @@
                     </a>
                     <div class="project-content">
                         <div class="project-meta">
-                            <span>Lógica</span>
-                            <span>Python</span>
-                            <span>Testes</span>
+                            <span><i class="fa-solid fa-superscript"></i> Lógica</span>
+                            <span><i class="fa-brands fa-python"></i> Python</span>
+                            <span>Análise Real</span>
                         </div>
                         <h2>GPS Theorem Prover</h2>
                         <p>
-                            Provador simbólico inspirado no General Problem Solver, com passos legíveis para lógica
-                            proposicional e esquemas de análise real.
+                            Provador simbólico de teoremas inspirado no General Problem Solver (GPS), com geração de deduções
+                            passo a passo para lógica proposicional e regras de limites na reta real.
                         </p>
                         <div class="project-actions">
                             <a href="projects/gps-theorem-prover/index.html" class="btn btn-primary">
@@ -235,24 +317,28 @@
 
         <footer>
             <div class="container">
-                <p>2026 Axl Andrade. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Axl Silva de Andrade. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/axlandrade" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="http://lattes.cnpq.br/4821444493668126" target="_blank" rel="noopener" aria-label="Lattes">
+                        <i class="fa-solid fa-graduation-cap"></i> Lattes
+                    </a>
+                    <a href="https://orcid.org/0009-0009-5147-0065" target="_blank" rel="noopener" aria-label="ORCID">
+                        <i class="fa-brands fa-orcid"></i> ORCID
+                    </a>
+                </div>
             </div>
         </footer>
     </div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isOpen);
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         if (window.AOS) {
-            AOS.init({ duration: 650, once: true });
+            AOS.init({ duration: 600, once: true });
         }
     </script>
 </body>
